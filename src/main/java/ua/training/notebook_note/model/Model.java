@@ -12,14 +12,14 @@ public class Model {
 	}
 
 	public Model(NoteBookNoteBO noteBookNoteBO) {
-		setNoteBooNoteBO(noteBookNoteBO);
+		setNoteBookNoteBO(noteBookNoteBO);
 	}
 
 	public NoteBookNoteBO getNoteBooNoteBO() {
 		return noteBookNoteBO;
 	}
 
-	public void setNoteBooNoteBO(NoteBookNoteBO noteBookNoteBO) {
+	public void setNoteBookNoteBO(NoteBookNoteBO noteBookNoteBO) {
 		Objects.requireNonNull(noteBookNoteBO, "subscriber note can't be null");
 
 		this.noteBookNoteBO = noteBookNoteBO;

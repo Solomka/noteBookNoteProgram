@@ -1,24 +1,67 @@
 package ua.training.notebook_note.model.dto;
 
+import ua.training.notebook_note.model.entity.types.Group;
+
 public class NoteBookNoteDTO {
-/*	
-	private String name;
-	private String surname;
-	private String patronymic;
+
+	private FullNameDTO fullName;
 	private String nickname;
-	
 	private String comment;
-	
-	private String homePhoneNum;
-	private String mobilePhoneNumFirst;
-	private String mobilePhoneNumSecond;
-	private String email;
-	private String skype;
-	
 	private AddressDTO addressDTO;
-	
-	private String fullNameFormated;
-	private String fullAddressFormated;
-	*/
+
+	private Group group;
+
+	public NoteBookNoteDTO() {
+
+	}
+
+	public NoteBookNoteDTO(FullNameDTO fullName, String nickname, String comment, AddressDTO addressDTO, Group group) {
+
+		this.fullName = fullName;
+		this.nickname = nickname;
+		this.comment = comment;
+		this.addressDTO = addressDTO;
+		this.group = group;
+	}
+
+	public FullNameDTO getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(FullNameDTO fullName) {
+		this.fullName = fullName;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public AddressDTO getAddressDTO() {
+		return addressDTO;
+	}
+
+	public void setAddressDTO(AddressDTO addressDTO) {
+		this.addressDTO = addressDTO;
+	}
+
+	public Group getGroup() {
+		return group;
+	}
+
+	public void setGroup(Group group) {
+		this.group = group;
+	}
 
 }
