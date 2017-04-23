@@ -8,37 +8,30 @@ import ua.training.notebook_note.controller.validation.UserInputValidationUtilit
 import ua.training.notebook_note.model.Model;
 import ua.training.notebook_note.model.dto.NoteBookNoteDTO;
 import ua.training.notebook_note.model.entity.NoteBookNoteBO;
+import ua.training.notebook_note.service.NoteBookNoteService;
 import ua.training.notebook_note.view.View;
 
-public class NoteBookNoteInputService {
+public class NoteBookNoteInputController {
 
-	private Model model;
+	
 	private View view;
 	private Scanner scanner;
 	
 	private NoteBookNoteDTO noteDTO;
 
-	public NoteBookNoteInputService(Model model, View view, Scanner scanner){
-		this.model = model;
+	private NoteBookNoteInputController(NoteBookNoteService model, View view, Scanner scanner){
+		
 		this.view = view;
 		this.scanner = scanner;
 		
 		this.noteDTO = new NoteBookNoteDTO();		
 	}
 	
-	public void processNoteBookNoteCreation (){
-		readNoteBookNoteUserInput();
-		NoteBookNoteBO noteBO = createNoteBookNoteBO();
-		
-		addNoteBookNoteToModel(noteBO);
-		showAddedNoteBookNote();		
-	}
+	public static NoteBookNoteDTO processNoteBookNoteUserInput (NoteBookNoteService model, View view, Scanner scanner){		
+		return new NoteBookNoteInputController(model, view, scanner).processNoteBookNoteUserInput();			
+	}	
 	
-	private NoteBookNoteBO createNoteBookNoteBO(){				
-		return NoteBookNoteBOConverter.fromNoteBookNoteDTO(noteDTO);		
-	}
-	
-	private void readNoteBookNoteUserInput(){
+	private NoteBookNoteDTO processNoteBookNoteUserInput(){
 		/*
 		this.name = UserInputValidationUtility.inputStringValue(scanner, view, View.NAME, RegexContainer.FULLNAME_REGEX);
 		this.surname = UserInputValidationUtility.inputStringValue(scanner, view, View.SURNAME, RegexContainer.FULLNAME_REGEX);
@@ -47,14 +40,7 @@ public class NoteBookNoteInputService {
 		this.nickname = UserInputValidationUtility.inputStringValue(scanner, view, View.NICKNAME, RegexContainer.FULLNAME_REGEX);
 		*/
 		
-	}
-
-	private void addNoteBookNoteToModel(final NoteBookNoteBO noteBO) {
-		model.setNoteBooNoteBO(noteBO);
-	}
-	
-	private void showAddedNoteBookNote(){
-		view.printNoteBookNote(model.getNoteBooNoteBO());
+		return null;
 		
 	}
 
