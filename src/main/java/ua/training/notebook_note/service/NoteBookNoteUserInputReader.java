@@ -92,9 +92,9 @@ public class NoteBookNoteUserInputReader {
 
 	private Group readNoteBookNoteGroupInput() {
 		int groupValue = UserInputValidationUtility.inputIntValue(scanner, view, ViewMessage.GROUP);
-		if (!checkGroupValue(groupValue)) {
-			groupValue = UserInputValidationUtility.inputIntValue(scanner, view,
-					ViewMessage.WRONG_INPUT + ViewMessage.NEW_LINE + ViewMessage.GROUP);
+		while (!checkGroupValue(groupValue)) {
+			view.printWrongInput();
+			groupValue = UserInputValidationUtility.inputIntValue(scanner, view, ViewMessage.GROUP);
 		}
 		return Group.getGroupByValue(groupValue);
 	}

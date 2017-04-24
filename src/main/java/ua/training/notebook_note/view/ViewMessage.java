@@ -17,7 +17,7 @@ public interface ViewMessage {
 	public String EMAIL = "email";
 	public String SKYPE = "skype";
 	
-	public String GROUP = "group (1 - SIMPLE CLIENT, 2 - VIP CLIENT)";
+	public String GROUP = "group (0 - SIMPLE CLIENT, 1 - VIP CLIENT)";
 	
 	public String ADDRESS_CITY = "city";	
 	public String ADDRESS_STREET = "street";	
