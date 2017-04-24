@@ -214,7 +214,7 @@ public final class NoteBookNoteBO {
 	public String toString() {
 		return "NoteBookNoteBO [fullName=" + fullName + ", nickname=" + nickname + ", contacts=" + contacts
 				+ ", comment=" + comment + ", address=" + address + ", group=" + group + ", nameFormatted="
-				+ nameFormatted + ", addressFormatted=" + addressFormatted + ", dateOfCreation=" + dateOfCreation.getShortFormattedLocalDateTime()
+				+ nameFormatted + ", addressFormatted=" + addressFormatted + ", dateOfCreation=" + dateOfCreation
 				+ ", dateOfUpdate=" + dateOfUpdate + "]";
 	}
 

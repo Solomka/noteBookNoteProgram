@@ -13,7 +13,7 @@ public class DateTime {
 		timePoint = LocalDateTime.now();
 		formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
 	}
-	
+
 	public DateTime(LocalDateTime localDateTime, DateTimeFormatter dateTimeFormatter) {
 		timePoint = localDateTime;
 		formatter = dateTimeFormatter;
@@ -21,10 +21,6 @@ public class DateTime {
 
 	public LocalDateTime getTimePoint() {
 		return timePoint;
-	}
-
-	public String getShortFormattedLocalDateTime() {
-		return timePoint.format(formatter);
 	}
 
 	public void setTimePoint(LocalDateTime timePoint) {
@@ -39,7 +35,7 @@ public class DateTime {
 		this.formatter = formatter;
 	}
 
-	public String toString(){
-		return timePoint.toString();
+	public String toString() {
+		return timePoint.format(formatter);
 	}
 }
