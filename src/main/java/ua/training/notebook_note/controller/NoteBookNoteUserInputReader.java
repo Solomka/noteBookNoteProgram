@@ -2,39 +2,34 @@ package ua.training.notebook_note.controller;
 
 import java.util.Scanner;
 
-import ua.training.notebook_note.controller.converter.NoteBookNoteBOConverter;
 import ua.training.notebook_note.controller.regex.RegexContainer;
 import ua.training.notebook_note.controller.validation.UserInputValidationUtility;
-import ua.training.notebook_note.model.Model;
 import ua.training.notebook_note.model.dto.FullNameDTO;
 import ua.training.notebook_note.model.dto.NoteBookNoteDTO;
-import ua.training.notebook_note.model.entity.NoteBookNoteBO;
-import ua.training.notebook_note.service.NoteBookNoteService;
 import ua.training.notebook_note.view.View;
 import ua.training.notebook_note.view.ViewMessage;
 
 public class NoteBookNoteUserInputReader {
 
-	
 	private View view;
 	private Scanner scanner;
-	
+
 	private NoteBookNoteDTO noteDTO;
 
-	private NoteBookNoteUserInputReader(View view, Scanner scanner){
-		
+	private NoteBookNoteUserInputReader(View view, Scanner scanner) {
+
 		this.view = view;
 		this.scanner = scanner;
-		
-		this.noteDTO = new NoteBookNoteDTO();		
+
+		this.noteDTO = new NoteBookNoteDTO();
 	}
-	
-	public static NoteBookNoteDTO readNoteBookNoteUserInput (View view, Scanner scanner){		
-		return new NoteBookNoteUserInputReader(view, scanner).readNoteBookNoteUserInput();			
-	}	
-	
-	private NoteBookNoteDTO readNoteBookNoteUserInput(){
-		
+
+	public static NoteBookNoteDTO readNoteBookNoteUserInput(View view, Scanner scanner) {
+		return new NoteBookNoteUserInputReader(view, scanner).readNoteBookNoteUserInput();
+	}
+
+	private NoteBookNoteDTO readNoteBookNoteUserInput() {
+
 		noteDTO.setFullName(readNoteBookNoteUserFullName());
 		noteDTO.setNickname(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.NICKNAME,
 				RegexContainer.FULLNAME_REGEX));
