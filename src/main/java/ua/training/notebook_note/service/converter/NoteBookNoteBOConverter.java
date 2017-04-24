@@ -19,12 +19,14 @@ public final class NoteBookNoteBOConverter {
 
 	public static NoteBookNoteBO fromNoteBookNoteDTO(final NoteBookNoteDTO noteDTO) {
 
+		final DateTime dateOfCreationUpdate = generateDateOfCreationUpdate();
+
 		return new NoteBookNoteBO.Builder().setFullName(generateFullName(noteDTO.getFullName()))
 				.setNickname(noteDTO.getNickname()).setContacts(generateContacts(noteDTO.getContacts()))
 				.setComment(noteDTO.getComment()).setAddress(generateAddress(noteDTO.getAddress()))
 				.setGroup(noteDTO.getGroup()).setNameFormatted(generateNoteFormatedFullName(noteDTO.getFullName()))
 				.setAddressFormatted(generateNoteFormattedAddress(noteDTO.getAddress()))
-				.setDateOfCreation(new DateTime()).setDateOfUpdate(new DateTime()).build();
+				.setDateOfCreation(dateOfCreationUpdate).setDateOfUpdate(dateOfCreationUpdate).build();
 	}
 
 	private static FullName generateFullName(FullNameDTO fullNameDTO) {
@@ -54,8 +56,14 @@ public final class NoteBookNoteBOConverter {
 	}
 
 	private static String generateNoteFormattedAddress(AddressDTO addressDTO) {
-		return addressDTO.toString();
+		return addressDTO.getIndex() + ViewMessage.COMMA + addressDTO.getCity() + ViewMessage.COMMA
+				+ addressDTO.getStreet() + ViewMessage.COMMA + addressDTO.getHouseNumber() + ViewMessage.BACKSLASH
+				+ addressDTO.getApartmentNumber();
 
+	}
+
+	private static DateTime generateDateOfCreationUpdate() {
+		return new DateTime();
 	}
 
 }

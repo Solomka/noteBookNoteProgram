@@ -27,7 +27,7 @@ public final class FullName {
 
 	@Override
 	public String toString() {
-		return "FullName [name=" + name + ", surname=" + surname + ", patronymic=" + patronymic + "]";
+		return "FullName { name=" + name + ", surname=" + surname + ", patronymic=" + patronymic + " }";
 	}
 
 }

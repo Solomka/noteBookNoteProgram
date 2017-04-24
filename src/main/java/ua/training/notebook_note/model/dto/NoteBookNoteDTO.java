@@ -17,7 +17,7 @@ public class NoteBookNoteDTO {
 
 	public NoteBookNoteDTO(FullNameDTO fullName, String nickname, ContactsDTO contacts, String comment,
 			AddressDTO address, Group group) {
-		
+
 		this.fullName = fullName;
 		this.nickname = nickname;
 		this.contacts = contacts;
@@ -72,12 +72,6 @@ public class NoteBookNoteDTO {
 
 	public void setGroup(Group group) {
 		this.group = group;
-	}
-
-	@Override
-	public String toString() {
-		return "NoteBookNoteDTO [fullName=" + fullName + ", nickname=" + nickname + ", contacts=" + contacts
-				+ ", comment=" + comment + ", address=" + address + ", group=" + group + "]";
 	}
 
 }

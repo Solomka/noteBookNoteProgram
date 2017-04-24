@@ -13,8 +13,8 @@ public class Controller {
 	private View view;
 
 	public Controller(Model model, View view) {
-		Objects.requireNonNull(model, "model can't be null");
-		Objects.requireNonNull(view, "view can't be null");
+		Objects.requireNonNull(model);
+		Objects.requireNonNull(view);
 
 		this.model = model;
 		this.view = view;

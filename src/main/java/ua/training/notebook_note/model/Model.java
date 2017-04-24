@@ -20,7 +20,7 @@ public class Model {
 	}
 
 	public void setNoteBookNoteBO(NoteBookNoteBO noteBookNoteBO) {
-		Objects.requireNonNull(noteBookNoteBO, "subscriber note can't be null");
+		Objects.requireNonNull(noteBookNoteBO, "noteBookNote can't be null");
 
 		this.noteBookNoteBO = noteBookNoteBO;
 	}

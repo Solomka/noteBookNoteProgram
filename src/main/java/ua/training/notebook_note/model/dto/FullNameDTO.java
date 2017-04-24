@@ -41,9 +41,4 @@ public class FullNameDTO {
 		this.patronymic = patronymic;
 	}
 
-	@Override
-	public String toString() {
-		return "FullNameDTO [name=" + name + ", surname=" + surname + ", patronymic=" + patronymic + "]";
-	}
-
 }

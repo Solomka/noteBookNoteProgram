@@ -112,8 +112,8 @@ public final class Contacts {
 
 	@Override
 	public String toString() {
-		return "Contacts [homePhoneNum=" + homePhoneNum + ", mobilePhoneNumFirst=" + mobilePhoneNumFirst
-				+ ", mobilePhoneNumSecond=" + mobilePhoneNumSecond + ", email=" + email + ", skype=" + skype + "]";
+		return "Contacts { homePhoneNum=" + homePhoneNum + ", mobilePhoneNumFirst=" + mobilePhoneNumFirst
+				+ ", mobilePhoneNumSecond=" + mobilePhoneNumSecond + ", email=" + email + ", skype=" + skype + " }";
 	}
 
 }

@@ -62,10 +62,4 @@ public class ContactsDTO {
 		this.skype = skype;
 	}
 
-	@Override
-	public String toString() {
-		return "ContactsDTO [homePhoneNum=" + homePhoneNum + ", mobilePhoneNumFirst=" + mobilePhoneNumFirst
-				+ ", mobilePhoneNumSecond=" + mobilePhoneNumSecond + ", email=" + email + ", skype=" + skype + "]";
-	}
-
 }

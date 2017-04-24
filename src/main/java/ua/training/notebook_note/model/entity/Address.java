@@ -26,7 +26,7 @@ public final class Address {
 
 		public Builder(final Address address) {
 			Objects.requireNonNull(address, "address can't be null");
-			
+
 			setIndex(address.getIndex()).setCity(address.getCity()).setStreet(address.getStreet())
 					.setHouseNumber(address.getHouseNumber()).setApartmentNumber(address.getApartmentNumber());
 
@@ -117,8 +117,8 @@ public final class Address {
 
 	@Override
 	public String toString() {
-		return "Address [index=" + index + ", city=" + city + ", street=" + street + ", houseNumber=" + houseNumber
-				+ ", apartmentNumber=" + apartmentNumber + "]";
+		return "Address { index=" + index + ", city=" + city + ", street=" + street + ", houseNumber=" + houseNumber
+				+ ", apartmentNumber=" + apartmentNumber + " }";
 	}
 
 }

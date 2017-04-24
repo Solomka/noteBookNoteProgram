@@ -42,7 +42,7 @@ public final class NoteBookNoteBO {
 
 		public Builder(final NoteBookNoteBO noteBookNote) {
 			Objects.requireNonNull(noteBookNote, "noteBookNote can't be null");
-			
+
 			setFullName(noteBookNote.getFullName()).setNickname(noteBookNote.getNickname())
 					.setContacts(noteBookNote.getContacts()).setComment(noteBookNote.getComment())
 					.setAddress(noteBookNote.getAddress()).setGroup(noteBookNote.getGroup())
@@ -212,10 +212,10 @@ public final class NoteBookNoteBO {
 
 	@Override
 	public String toString() {
-		return "NoteBookNoteBO [fullName=" + fullName + ", nickname=" + nickname + ", contacts=" + contacts
-				+ ", comment=" + comment + ", address=" + address + ", group=" + group + ", nameFormatted="
-				+ nameFormatted + ", addressFormatted=" + addressFormatted + ", dateOfCreation=" + dateOfCreation
-				+ ", dateOfUpdate=" + dateOfUpdate + "]";
+		return "NoteBookNote { " + '\n' + fullName + ",\nNickname=" + nickname + ",\n" + contacts + ",\nComment="
+				+ comment + ",\n" + address + ",\ngroup=" + group + ",\nNameFormatted=" + nameFormatted
+				+ ",\nAddressFormatted=" + addressFormatted + ",\nDateOfCreation=" + dateOfCreation + ",\nDateOfUpdate="
+				+ dateOfUpdate + "}";
 	}
 
 }

@@ -61,10 +61,4 @@ public class AddressDTO {
 		this.apartmentNumber = apartmentNumber;
 	}
 
-	@Override
-	public String toString() {
-		return "AddressDTO [index=" + index + ", city=" + city + ", street=" + street + ", houseNumber=" + houseNumber
-				+ ", apartmentNumber=" + apartmentNumber + "]";
-	}
-
 }
