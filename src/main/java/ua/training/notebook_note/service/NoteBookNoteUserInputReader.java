@@ -1,4 +1,4 @@
-package ua.training.notebook_note.controller;
+package ua.training.notebook_note.service;
 
 import java.util.Scanner;
 
@@ -60,10 +60,10 @@ public class NoteBookNoteUserInputReader {
 		ContactsDTO contacts = new ContactsDTO();
 		contacts.setHomePhoneNum(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.HOME_PHONE_NUM,
 				RegexContainer.HOME_PHONE_NUM_REGEX));
-		contacts.setMobilePhoneNumFirst(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.MOB_PHONE_NUM_1,
-				RegexContainer.MOB_PHONE_NUM_REGEX));
-		contacts.setMobilePhoneNumSecond(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.MOB_PHONE_NUM_2,
-				RegexContainer.MOB_PHONE_NUM2_REGEX));
+		contacts.setMobilePhoneNumFirst(UserInputValidationUtility.inputStringValue(scanner, view,
+				ViewMessage.MOB_PHONE_NUM_1, RegexContainer.MOB_PHONE_NUM_REGEX));
+		contacts.setMobilePhoneNumSecond(UserInputValidationUtility.inputStringValue(scanner, view,
+				ViewMessage.MOB_PHONE_NUM_2, RegexContainer.MOB_PHONE_NUM2_REGEX));
 		contacts.setEmail(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.EMAIL,
 				RegexContainer.EMAIL_REGEX));
 		contacts.setSkype(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.SKYPE,
@@ -81,8 +81,8 @@ public class NoteBookNoteUserInputReader {
 				RegexContainer.ADDRESS_CITY_STREET_REGEX));
 		address.setHouseNumber(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.ADDRESS_HOUSE_NUM,
 				RegexContainer.ADDRESS_HOUSE_APPART_NUM_REGEX));
-		address.setApartmentNumber(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.ADDRESS_APPART_NUM,
-				RegexContainer.ADDRESS_HOUSE_APPART_NUM_REGEX));
+		address.setApartmentNumber(UserInputValidationUtility.inputStringValue(scanner, view,
+				ViewMessage.ADDRESS_APPART_NUM, RegexContainer.ADDRESS_HOUSE_APPART_NUM_REGEX));
 		address.setIndex(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.ADDRESS_INDEX,
 				RegexContainer.ADDRESS_INDEX_REGEX));
 
@@ -92,8 +92,9 @@ public class NoteBookNoteUserInputReader {
 
 	private Group readNoteBookNoteGroupInput() {
 		int groupValue = UserInputValidationUtility.inputIntValue(scanner, view, ViewMessage.GROUP);
-		if(! checkGroupValue(groupValue)){
-			groupValue = UserInputValidationUtility.inputIntValue(scanner, view, ViewMessage.WRONG_INPUT + ViewMessage.NEW_LINE + ViewMessage.GROUP);
+		if (!checkGroupValue(groupValue)) {
+			groupValue = UserInputValidationUtility.inputIntValue(scanner, view,
+					ViewMessage.WRONG_INPUT + ViewMessage.NEW_LINE + ViewMessage.GROUP);
 		}
 		return Group.getGroupByValue(groupValue);
 	}

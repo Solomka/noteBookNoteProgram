@@ -1,4 +1,4 @@
-package ua.training.notebook_note.controller.converter;
+package ua.training.notebook_note.service.converter;
 
 import ua.training.notebook_note.model.dto.AddressDTO;
 import ua.training.notebook_note.model.dto.ContactsDTO;
