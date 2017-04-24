@@ -2,7 +2,7 @@ package ua.training.notebook_note.model.entity.types;
 
 public enum Group {
 
-	SIMPLE_CLIENT(1), VIP_CLIENT(1);
+	SIMPLE_CLIENT(0), VIP_CLIENT(1);
 
 	private int value;
 

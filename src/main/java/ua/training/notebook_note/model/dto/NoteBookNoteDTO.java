@@ -6,21 +6,23 @@ public class NoteBookNoteDTO {
 
 	private FullNameDTO fullName;
 	private String nickname;
+	private ContactsDTO contacts;
 	private String comment;
-	private AddressDTO addressDTO;
-
+	private AddressDTO address;
 	private Group group;
 
 	public NoteBookNoteDTO() {
 
 	}
 
-	public NoteBookNoteDTO(FullNameDTO fullName, String nickname, String comment, AddressDTO addressDTO, Group group) {
-
+	public NoteBookNoteDTO(FullNameDTO fullName, String nickname, ContactsDTO contacts, String comment,
+			AddressDTO address, Group group) {
+		
 		this.fullName = fullName;
 		this.nickname = nickname;
+		this.contacts = contacts;
 		this.comment = comment;
-		this.addressDTO = addressDTO;
+		this.address = address;
 		this.group = group;
 	}
 
@@ -40,6 +42,14 @@ public class NoteBookNoteDTO {
 		this.nickname = nickname;
 	}
 
+	public ContactsDTO getContacts() {
+		return contacts;
+	}
+
+	public void setContacts(ContactsDTO contacts) {
+		this.contacts = contacts;
+	}
+
 	public String getComment() {
 		return comment;
 	}
@@ -48,12 +58,12 @@ public class NoteBookNoteDTO {
 		this.comment = comment;
 	}
 
-	public AddressDTO getAddressDTO() {
-		return addressDTO;
+	public AddressDTO getAddress() {
+		return address;
 	}
 
-	public void setAddressDTO(AddressDTO addressDTO) {
-		this.addressDTO = addressDTO;
+	public void setAddress(AddressDTO address) {
+		this.address = address;
 	}
 
 	public Group getGroup() {
@@ -62,6 +72,12 @@ public class NoteBookNoteDTO {
 
 	public void setGroup(Group group) {
 		this.group = group;
+	}
+
+	@Override
+	public String toString() {
+		return "NoteBookNoteDTO [fullName=" + fullName + ", nickname=" + nickname + ", contacts=" + contacts
+				+ ", comment=" + comment + ", address=" + address + ", group=" + group + "]";
 	}
 
 }

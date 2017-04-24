@@ -17,7 +17,7 @@ public class Main {
 		Controller controller = new Controller(noteService, view);
 
 		// Start user's interaction
-		// controller.processUser();
+		 controller.processUser();
 
 		//DateTime dateTime = new DateTime();
 		//System.out.println("DateTime: " + dateTime.getShortFormattedLocalDateTime());

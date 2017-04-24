@@ -6,17 +6,22 @@ import ua.training.notebook_note.model.Model;
 import ua.training.notebook_note.view.View;
 import ua.training.notebook_note.view.ViewMessage;
 
-public class UserInputValidationUtility {
+public final class UserInputValidationUtility {
+	
+	private UserInputValidationUtility(){
+		throw new RuntimeException();
+	}
 
-	public static String inputIntValue(Scanner scanner, View view, String message) {
-		view.printMessage(ViewMessage.TYPE, message, ViewMessage.COLON);
-		String res = "";
-		while(!(scanner.hasNext() && (res = scanner.next()).matches(""))){
+	public static int inputIntValue(Scanner scanner, View view, String message) {
+		view.printMessage(ViewMessage.TYPE, message, ViewMessage.COLON);		
+		while(!(scanner.hasNextInt())){
 			view.printWrongInput();
 			view.printMessage(ViewMessage.TYPE, message, ViewMessage.COLON);
+			scanner.next();
 		}
-		return res;
-	}
+		return scanner.nextInt();
+	}	
+	
 
 	public static String inputStringValue(Scanner scanner, View view, String message, String regex) {
 		view.printMessage(ViewMessage.TYPE, message, ViewMessage.COLON);
