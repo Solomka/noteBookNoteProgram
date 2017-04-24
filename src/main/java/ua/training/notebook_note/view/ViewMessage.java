@@ -30,6 +30,7 @@ public interface ViewMessage {
 	public String LEFT_PARENTHESIS = "[ ";
 	public String RIGHT_PARANTHESIS = " ]";
 	public String COMMA = ", ";
+	public String FULL_STOP = ". ";
 	public String COLON = ": ";
 	public String EMPTY_STR = " ";
 	public String NEW_LINE = "\n";

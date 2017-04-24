@@ -24,9 +24,9 @@ public class Controller {
 		Scanner scanner = new Scanner(System.in);
 		
 		final NoteBookNoteDTO noteBookNoteDTO = NoteBookNoteUserInputReader.readNoteBookNoteUserInput(view, scanner);
-		System.out.println("NoteBookNoteDTO: " + noteBookNoteDTO.toString());
-		//noteBookNoteService.addNoteBookNoteToModel(noteBookNoteDTO);
-		//view.printNoteBookNote(noteBookNoteService.getModelNoteBookNote());
+		//System.out.println("NoteBookNoteDTO: " + noteBookNoteDTO.toString());
+		noteBookNoteService.addNoteBookNoteToModel(noteBookNoteDTO);
+		view.printNoteBookNote(noteBookNoteService.getModelNoteBookNote());
 	}
 
 }

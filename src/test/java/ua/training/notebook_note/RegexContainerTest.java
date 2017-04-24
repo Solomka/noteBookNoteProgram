@@ -68,6 +68,17 @@ public class RegexContainerTest {
 
 	}
 	
+	@Test
+	public void testMobilePhoneNum2Regex() {
+		String mobilePhone = "+380-95-805-1883";
+
+		boolean actual = mobilePhone.matches(RegexContainer.MOB_PHONE_NUM2_REGEX);
+		boolean expected = true;
+
+		assertEquals(expected, actual);
+
+	}
+	
 	//@Ignore
 	@Test
 	public void testEmailRegex() {

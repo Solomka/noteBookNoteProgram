@@ -26,13 +26,12 @@ public final class UserInputValidationUtility {
 	public static String inputStringValue(Scanner scanner, View view, String message, String regex) {
 		view.printMessage(ViewMessage.TYPE, message, ViewMessage.COLON);
 		String res = "";
-		while(!(scanner.hasNext() && (res = scanner.next()).matches(regex))){
+		while(!(scanner.hasNextLine() && (res = scanner.nextLine()).matches(regex))){
 			view.printWrongInput();
 			view.printMessage(ViewMessage.TYPE, message, ViewMessage.COLON);
 		}
 		return res;
 	}
-
 	
 	
 	
