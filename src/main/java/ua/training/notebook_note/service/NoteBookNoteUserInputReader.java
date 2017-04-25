@@ -2,8 +2,8 @@ package ua.training.notebook_note.service;
 
 import java.util.Scanner;
 
+import ua.training.notebook_note.controller.UserInputProcessUtility;
 import ua.training.notebook_note.controller.regex.RegexContainer;
-import ua.training.notebook_note.controller.validation.UserInputValidationUtility;
 import ua.training.notebook_note.model.dto.AddressDTO;
 import ua.training.notebook_note.model.dto.ContactsDTO;
 import ua.training.notebook_note.model.dto.FullNameDTO;
@@ -12,6 +12,15 @@ import ua.training.notebook_note.model.entity.types.Group;
 import ua.training.notebook_note.view.View;
 import ua.training.notebook_note.view.ViewMessage;
 
+/**
+ * Class that handles user's console input
+ * <p>
+ * This class reads user's input from console and returns it in a
+ * NoteBookNoteDTO object
+ * 
+ * @author Solomka
+ *
+ */
 public class NoteBookNoteUserInputReader {
 
 	private View view;
@@ -27,78 +36,122 @@ public class NoteBookNoteUserInputReader {
 		this.noteDTO = new NoteBookNoteDTO();
 	}
 
+	/**
+	 * Creates instance of this class and start's up reading user's console
+	 * input
+	 * 
+	 * @param view
+	 *            view that represents data to the user
+	 * @param scanner
+	 *            simple text scanner which can parse primitive types and
+	 *            strings using regular expressions
+	 * @return object that contains validated user's input
+	 */
 	public static NoteBookNoteDTO readNoteBookNoteUserInput(View view, Scanner scanner) {
 		return new NoteBookNoteUserInputReader(view, scanner).readNoteBookNoteUserInput();
 	}
 
+	/**
+	 * reads and validates user's console input and stores it in the
+	 * NoteBookNoteDTO object
+	 * 
+	 * @return
+	 */
 	private NoteBookNoteDTO readNoteBookNoteUserInput() {
 
 		noteDTO.setFullName(readNoteBookNoteFullNameInput());
-		noteDTO.setNickname(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.NICKNAME,
+		noteDTO.setNickname(UserInputProcessUtility.inputStringValue(scanner, view, ViewMessage.NICKNAME,
 				RegexContainer.NICKNAME_REGEX));
 		noteDTO.setContacts(readNoteBookNoteContactsInput());
-		noteDTO.setComment(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.COMMENT,
+		noteDTO.setComment(UserInputProcessUtility.inputStringValue(scanner, view, ViewMessage.COMMENT,
 				RegexContainer.COMMENT_REGEX));
 		noteDTO.setAddress(readNoteBookNoteAddressInput());
 		noteDTO.setGroup(readNoteBookNoteGroupInput());
 		return noteDTO;
 	}
 
+	/**
+	 * reads subscriber's fullName from console
+	 * 
+	 * @return object that stores fullName subscriber's information
+	 */
 	private FullNameDTO readNoteBookNoteFullNameInput() {
 		FullNameDTO fullName = new FullNameDTO();
-		fullName.setName(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.NAME,
+		fullName.setName(UserInputProcessUtility.inputStringValue(scanner, view, ViewMessage.NAME,
 				RegexContainer.FULLNAME_REGEX));
-		fullName.setSurname(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.SURNAME,
+		fullName.setSurname(UserInputProcessUtility.inputStringValue(scanner, view, ViewMessage.SURNAME,
 				RegexContainer.FULLNAME_REGEX));
-		fullName.setPatronymic(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.PATRONYMIC,
+		fullName.setPatronymic(UserInputProcessUtility.inputStringValue(scanner, view, ViewMessage.PATRONYMIC,
 				RegexContainer.FULLNAME_REGEX));
 
 		return fullName;
 	}
 
+	/**
+	 * reads subscriber's contacts info from console
+	 * 
+	 * @return object that stores contacts subscriber's information
+	 */
 	private ContactsDTO readNoteBookNoteContactsInput() {
 		ContactsDTO contacts = new ContactsDTO();
-		contacts.setHomePhoneNum(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.HOME_PHONE_NUM,
+		contacts.setHomePhoneNum(UserInputProcessUtility.inputStringValue(scanner, view, ViewMessage.HOME_PHONE_NUM,
 				RegexContainer.HOME_PHONE_NUM_REGEX));
-		contacts.setMobilePhoneNumFirst(UserInputValidationUtility.inputStringValue(scanner, view,
+		contacts.setMobilePhoneNumFirst(UserInputProcessUtility.inputStringValue(scanner, view,
 				ViewMessage.MOB_PHONE_NUM_1, RegexContainer.MOB_PHONE_NUM_REGEX));
-		contacts.setMobilePhoneNumSecond(UserInputValidationUtility.inputStringValue(scanner, view,
+		contacts.setMobilePhoneNumSecond(UserInputProcessUtility.inputStringValue(scanner, view,
 				ViewMessage.MOB_PHONE_NUM_2, RegexContainer.MOB_PHONE_NUM2_REGEX));
-		contacts.setEmail(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.EMAIL,
-				RegexContainer.EMAIL_REGEX));
-		contacts.setSkype(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.SKYPE,
-				RegexContainer.SKYPE_REGEX));
+		contacts.setEmail(
+				UserInputProcessUtility.inputStringValue(scanner, view, ViewMessage.EMAIL, RegexContainer.EMAIL_REGEX));
+		contacts.setSkype(
+				UserInputProcessUtility.inputStringValue(scanner, view, ViewMessage.SKYPE, RegexContainer.SKYPE_REGEX));
 
 		return contacts;
 
 	}
 
+	/**
+	 * reads subscriver's address from console
+	 * 
+	 * @return object that stores contacts subscriber's address
+	 */
 	private AddressDTO readNoteBookNoteAddressInput() {
 		AddressDTO address = new AddressDTO();
-		address.setCity(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.ADDRESS_CITY,
+		address.setCity(UserInputProcessUtility.inputStringValue(scanner, view, ViewMessage.ADDRESS_CITY,
 				RegexContainer.ADDRESS_CITY_STREET_REGEX));
-		address.setStreet(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.ADDRESS_STREET,
+		address.setStreet(UserInputProcessUtility.inputStringValue(scanner, view, ViewMessage.ADDRESS_STREET,
 				RegexContainer.ADDRESS_CITY_STREET_REGEX));
-		address.setHouseNumber(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.ADDRESS_HOUSE_NUM,
+		address.setHouseNumber(UserInputProcessUtility.inputStringValue(scanner, view, ViewMessage.ADDRESS_HOUSE_NUM,
 				RegexContainer.ADDRESS_HOUSE_APPART_NUM_REGEX));
-		address.setApartmentNumber(UserInputValidationUtility.inputStringValue(scanner, view,
+		address.setApartmentNumber(UserInputProcessUtility.inputStringValue(scanner, view,
 				ViewMessage.ADDRESS_APPART_NUM, RegexContainer.ADDRESS_HOUSE_APPART_NUM_REGEX));
-		address.setIndex(UserInputValidationUtility.inputStringValue(scanner, view, ViewMessage.ADDRESS_INDEX,
+		address.setIndex(UserInputProcessUtility.inputStringValue(scanner, view, ViewMessage.ADDRESS_INDEX,
 				RegexContainer.ADDRESS_INDEX_REGEX));
 
 		return address;
 
 	}
 
+	/**
+	 * reads sunscriber's group from console
+	 * 
+	 * @return subscriber's group type
+	 */
 	private Group readNoteBookNoteGroupInput() {
-		int groupValue = UserInputValidationUtility.inputIntValue(scanner, view, ViewMessage.GROUP);
+		int groupValue = UserInputProcessUtility.inputIntValue(scanner, view, ViewMessage.GROUP);
 		while (!checkGroupValue(groupValue)) {
 			view.printWrongInput();
-			groupValue = UserInputValidationUtility.inputIntValue(scanner, view, ViewMessage.GROUP);
+			groupValue = UserInputProcessUtility.inputIntValue(scanner, view, ViewMessage.GROUP);
 		}
 		return Group.getGroupByValue(groupValue);
 	}
 
+	/**
+	 * check correctness of the
+	 * 
+	 * @param int
+	 *            groupValue value of the group type
+	 * @return true if it's some group's type value , false otherwise
+	 */
 	private boolean checkGroupValue(int groupValue) {
 		if ((groupValue < 0) || (groupValue > 1)) {
 			return false;

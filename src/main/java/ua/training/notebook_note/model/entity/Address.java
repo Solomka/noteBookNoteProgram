@@ -24,14 +24,6 @@ public final class Address {
 
 		}
 
-		public Builder(final Address address) {
-			Objects.requireNonNull(address, "address can't be null");
-
-			setIndex(address.getIndex()).setCity(address.getCity()).setStreet(address.getStreet())
-					.setHouseNumber(address.getHouseNumber()).setApartmentNumber(address.getApartmentNumber());
-
-		}
-
 		public String getIndex() {
 			return index;
 		}

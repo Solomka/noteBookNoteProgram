@@ -24,10 +24,6 @@ public final class Contacts {
 
 		}
 
-		public Builder(Contacts contacts) {
-			Objects.requireNonNull(contacts, "contacts can't be null");
-		}
-
 		public String getHomePhoneNum() {
 			return homePhoneNum;
 		}

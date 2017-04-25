@@ -11,12 +11,26 @@ import ua.training.notebook_note.model.entity.NoteBookNoteBO;
 import ua.training.notebook_note.utils.DateTime;
 import ua.training.notebook_note.view.ViewMessage;
 
+/**
+ * Class that processes construction of the validated and consistent noteBook's
+ * note object
+ * 
+ * @author Solomka
+ *
+ */
 public final class NoteBookNoteBOConverter {
 
 	private NoteBookNoteBOConverter() {
 		throw new RuntimeException();
 	}
 
+	/**
+	 * generates consistent NoteBookNoteBO object
+	 * 
+	 * @param noteDTO
+	 *            dto objects that contains validated user's input from console
+	 * @return
+	 */
 	public static NoteBookNoteBO fromNoteBookNoteDTO(final NoteBookNoteDTO noteDTO) {
 
 		final DateTime dateOfCreationUpdate = generateDateOfCreationUpdate();

@@ -9,12 +9,12 @@ public class ContactsDTO {
 	private String skype;
 
 	public ContactsDTO() {
-		super();
+
 	}
 
 	public ContactsDTO(String homePhoneNum, String mobilePhoneNumFirst, String mobilePhoneNumSecond, String email,
 			String skype) {
-		super();
+
 		this.homePhoneNum = homePhoneNum;
 		this.mobilePhoneNumFirst = mobilePhoneNumFirst;
 		this.mobilePhoneNumSecond = mobilePhoneNumSecond;

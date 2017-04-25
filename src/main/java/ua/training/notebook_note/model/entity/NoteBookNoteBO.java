@@ -6,6 +6,12 @@ import ua.training.notebook_note.model.entity.types.Group;
 import ua.training.notebook_note.utils.DateTime;
 import ua.training.notebook_note.utils.IBuilder;
 
+/**
+ * immutable class that represents consistent notebook's note
+ * 
+ * @author Solomka
+ *
+ */
 public final class NoteBookNoteBO {
 
 	private final FullName fullName;
@@ -21,6 +27,13 @@ public final class NoteBookNoteBO {
 	private final DateTime dateOfCreation;
 	private DateTime dateOfUpdate;
 
+	/**
+	 * builder class that creates immutable instance of
+	 * {@linkplain NoteBookNoteBO}
+	 * 
+	 * @author Solomka
+	 *
+	 */
 	public static class Builder implements IBuilder<NoteBookNoteBO> {
 
 		private FullName fullName;
@@ -37,19 +50,6 @@ public final class NoteBookNoteBO {
 		private DateTime dateOfUpdate;
 
 		public Builder() {
-
-		}
-
-		public Builder(final NoteBookNoteBO noteBookNote) {
-			Objects.requireNonNull(noteBookNote, "noteBookNote can't be null");
-
-			setFullName(noteBookNote.getFullName()).setNickname(noteBookNote.getNickname())
-					.setContacts(noteBookNote.getContacts()).setComment(noteBookNote.getComment())
-					.setAddress(noteBookNote.getAddress()).setGroup(noteBookNote.getGroup())
-					.setNameFormatted(noteBookNote.getNameFormatted())
-					.setAddressFormatted(noteBookNote.getAddressFormatted())
-					.setDateOfCreation(noteBookNote.getDateOfCreation())
-					.setDateOfUpdate(noteBookNote.getDateOfUpdate());
 
 		}
 

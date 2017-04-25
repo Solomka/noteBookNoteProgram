@@ -2,13 +2,35 @@ package ua.training.notebook_note.view;
 
 import ua.training.notebook_note.model.entity.NoteBookNoteBO;
 
+/**
+ * 
+ * Class that represents View. It provides main user interface and displaying of
+ * all the user's actions related messages
+ * 
+ * 
+ * @author Solomka
+ *
+ */
 public class View {
 
+	/**
+	 * Shows constructed message
+	 * 
+	 * @param messages
+	 *            parts of the message (one or many)
+	 */
 	public void printMessage(String... messages) {
 		String resultedMessage = generateMessageFromParts(messages);
 		System.out.println(resultedMessage);
 	}
 
+	/**
+	 * Generates one message from its parts (one or many)
+	 * 
+	 * @param messages
+	 *            parts of the message (one or many)
+	 * @return constructed message
+	 */
 	private String generateMessageFromParts(String... messages) {
 		StringBuilder builder = new StringBuilder();
 
@@ -18,9 +40,19 @@ public class View {
 		return builder.toString();
 	}
 
+	/**
+	 * Shows information about wrong input
+	 */
 	public void printWrongInput() {
 		printMessage(ViewMessage.WRONG_INPUT);
 	}
+
+	/**
+	 * Show information about added notebook's note
+	 * 
+	 * @param note
+	 *            added notebook's note to show
+	 */
 
 	public void printNoteBookNote(final NoteBookNoteBO note) {
 		printMessage(note.toString());

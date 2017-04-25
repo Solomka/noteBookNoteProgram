@@ -4,6 +4,13 @@ import java.util.Objects;
 
 import ua.training.notebook_note.model.entity.NoteBookNoteBO;
 
+/**
+ * Class that represents Model and contains information about NoteBook note
+ * (NoteBookNoteBO) and provides methods for its setting and obtaining
+ * 
+ * @author Solomka
+ *
+ */
 public class Model {
 
 	private NoteBookNoteBO noteBookNoteBO;
@@ -20,7 +27,7 @@ public class Model {
 	}
 
 	public void setNoteBookNoteBO(NoteBookNoteBO noteBookNoteBO) {
-		Objects.requireNonNull(noteBookNoteBO, "noteBookNote can't be null");
+		Objects.requireNonNull(noteBookNoteBO);
 
 		this.noteBookNoteBO = noteBookNoteBO;
 	}
