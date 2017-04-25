@@ -1,5 +1,6 @@
 package ua.training.notebook_note.service;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 import ua.training.notebook_note.controller.UserInputProcessUtility;
@@ -29,6 +30,8 @@ public class NoteBookNoteUserInputReader {
 	private NoteBookNoteDTO noteDTO;
 
 	private NoteBookNoteUserInputReader(View view, Scanner scanner) {
+		Objects.requireNonNull(view);
+		Objects.requireNonNull(scanner);
 
 		this.view = view;
 		this.scanner = scanner;

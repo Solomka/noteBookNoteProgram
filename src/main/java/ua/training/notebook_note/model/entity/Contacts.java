@@ -77,7 +77,7 @@ public final class Contacts {
 	}
 
 	private Contacts(Builder builder) {
-		Objects.requireNonNull(builder, "builder can't be null");
+		Objects.requireNonNull(builder);
 
 		this.homePhoneNum = builder.getHomePhoneNum();
 		this.mobilePhoneNumFirst = builder.getMobilePhoneNumFirst();

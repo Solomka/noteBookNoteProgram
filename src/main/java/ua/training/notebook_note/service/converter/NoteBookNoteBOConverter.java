@@ -1,5 +1,7 @@
 package ua.training.notebook_note.service.converter;
 
+import java.util.Objects;
+
 import ua.training.notebook_note.model.dto.AddressDTO;
 import ua.training.notebook_note.model.dto.ContactsDTO;
 import ua.training.notebook_note.model.dto.FullNameDTO;
@@ -32,6 +34,8 @@ public final class NoteBookNoteBOConverter {
 	 * @return
 	 */
 	public static NoteBookNoteBO fromNoteBookNoteDTO(final NoteBookNoteDTO noteDTO) {
+		
+		Objects.requireNonNull(noteDTO);
 
 		final DateTime dateOfCreationUpdate = generateDateOfCreationUpdate();
 

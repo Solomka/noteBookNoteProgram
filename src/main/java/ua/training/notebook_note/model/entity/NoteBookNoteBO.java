@@ -151,7 +151,7 @@ public final class NoteBookNoteBO {
 	}
 
 	private NoteBookNoteBO(Builder builder) {
-		Objects.requireNonNull(builder, "builder can't be null");
+		Objects.requireNonNull(builder);
 
 		this.fullName = builder.getFullName();
 		this.nickname = builder.getNickname();

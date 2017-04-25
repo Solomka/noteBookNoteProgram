@@ -78,7 +78,7 @@ public final class Address {
 	}
 
 	private Address(Builder builder) {
-		Objects.requireNonNull(builder, "builder can't be null");
+		Objects.requireNonNull(builder);
 
 		this.index = builder.getIndex();
 		this.city = builder.getCity();
