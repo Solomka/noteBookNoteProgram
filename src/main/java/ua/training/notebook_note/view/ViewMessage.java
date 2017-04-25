@@ -18,8 +18,8 @@ public interface ViewMessage {
 	public String COMMENT = "comment";
 
 	public String HOME_PHONE_NUM = "home phone number (XXX-XX-XX)";
-	public String MOB_PHONE_NUM_1 = "first mopile phone number (+380-XX-XXX-XXXX)";
-	public String MOB_PHONE_NUM_2 = "second mopile phone number (+380-XX-XXX-XXXX | empty )";
+	public String MOB_PHONE_NUM_1 = "first mobile phone number (+380-XX-XXX-XXXX)";
+	public String MOB_PHONE_NUM_2 = "second mobile phone number (+380-XX-XXX-XXXX | empty )";
 	public String EMAIL = "email";
 	public String SKYPE = "skype";
 
