@@ -26,7 +26,7 @@ public final class NoteBookNoteBO {
 	private final String addressFormatted;
 
 	private final DateTime dateOfCreation;
-	private DateTime dateOfUpdate;
+	private final DateTime dateOfUpdate;
 
 	/**
 	 * builder class that creates immutable instance of
@@ -173,10 +173,6 @@ public final class NoteBookNoteBO {
 
 	public DateTime getDateOfUpdate() {
 		return dateOfUpdate;
-	}
-
-	public void setDateOfUpdate(DateTime dateOfUpdate) {
-		this.dateOfUpdate = dateOfUpdate;
 	}
 
 	public FullName getFullName() {
