@@ -8,8 +8,8 @@ import ua.training.notebook_note.service.NoteBookNoteService;
 import ua.training.notebook_note.view.View;
 
 /**
- * Class that represents Controller and starts up Service that processes notebook's
- * note creation
+ * Class that represents Controller and starts up Service that processes
+ * notebook's note creation
  * 
  * @author Solomka
  *
@@ -20,11 +20,9 @@ public class Controller {
 	private View view;
 
 	public Controller(Model model, View view) {
-		Objects.requireNonNull(model);
-		Objects.requireNonNull(view);
 
-		this.model = model;
-		this.view = view;
+		this.model = Objects.requireNonNull(model);
+		this.view = Objects.requireNonNull(view);
 	}
 
 	/**

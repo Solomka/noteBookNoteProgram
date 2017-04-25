@@ -30,11 +30,8 @@ public class NoteBookNoteUserInputReader {
 	private NoteBookNoteDTO noteDTO;
 
 	private NoteBookNoteUserInputReader(View view, Scanner scanner) {
-		Objects.requireNonNull(view);
-		Objects.requireNonNull(scanner);
-
-		this.view = view;
-		this.scanner = scanner;
+		this.view = Objects.requireNonNull(view);
+		this.scanner = Objects.requireNonNull(scanner);
 
 		this.noteDTO = new NoteBookNoteDTO();
 	}

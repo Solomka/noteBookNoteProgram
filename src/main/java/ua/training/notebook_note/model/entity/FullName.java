@@ -1,5 +1,7 @@
 package ua.training.notebook_note.model.entity;
 
+import java.util.Objects;
+
 /**
  * immutable class that represents consistent subscriber's FullName
  * 
@@ -14,9 +16,9 @@ public final class FullName {
 
 	public FullName(String name, String surname, String patronymic) {
 
-		this.name = name;
-		this.surname = surname;
-		this.patronymic = patronymic;
+		this.name = Objects.requireNonNull(name);
+		this.surname = Objects.requireNonNull(surname);
+		this.patronymic = Objects.requireNonNull(patronymic);
 	}
 
 	public String getName() {

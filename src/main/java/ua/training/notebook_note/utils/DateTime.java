@@ -3,6 +3,7 @@ package ua.training.notebook_note.utils;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.Objects;
 
 /**
  * Class that represents LocalDateTime in specified format using given
@@ -26,8 +27,8 @@ public class DateTime {
 	}
 
 	public DateTime(LocalDateTime localDateTime, DateTimeFormatter dateTimeFormatter) {
-		timePoint = localDateTime;
-		formatter = dateTimeFormatter;
+		timePoint = Objects.requireNonNull(localDateTime);
+		formatter = Objects.requireNonNull(dateTimeFormatter);
 	}
 
 	public LocalDateTime getTimePoint() {

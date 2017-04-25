@@ -27,9 +27,7 @@ public class Model {
 	}
 
 	public void setNoteBookNoteBO(NoteBookNoteBO noteBookNoteBO) {
-		Objects.requireNonNull(noteBookNoteBO);
-
-		this.noteBookNoteBO = noteBookNoteBO;
+		this.noteBookNoteBO = Objects.requireNonNull(noteBookNoteBO);
 	}
 
 }

@@ -91,11 +91,11 @@ public final class Contacts {
 	private Contacts(Builder builder) {
 		Objects.requireNonNull(builder);
 
-		this.homePhoneNum = builder.getHomePhoneNum();
-		this.mobilePhoneNumFirst = builder.getMobilePhoneNumFirst();
-		this.mobilePhoneNumSecond = builder.getMobilePhoneNumSecond();
-		this.email = builder.getEmail();
-		this.skype = builder.getSkype();
+		this.homePhoneNum = Objects.requireNonNull(builder.getHomePhoneNum());
+		this.mobilePhoneNumFirst = Objects.requireNonNull(builder.getMobilePhoneNumFirst());
+		this.mobilePhoneNumSecond = Objects.requireNonNull(builder.getMobilePhoneNumSecond());
+		this.email = Objects.requireNonNull(builder.getEmail());
+		this.skype = Objects.requireNonNull(builder.getSkype());
 	}
 
 	public String getHomePhoneNum() {

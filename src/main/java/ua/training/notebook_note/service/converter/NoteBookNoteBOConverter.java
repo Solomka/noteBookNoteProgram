@@ -42,7 +42,7 @@ public final class NoteBookNoteBOConverter {
 		return new NoteBookNoteBO.Builder().setFullName(generateFullName(noteDTO.getFullName()))
 				.setNickname(noteDTO.getNickname()).setContacts(generateContacts(noteDTO.getContacts()))
 				.setComment(noteDTO.getComment()).setAddress(generateAddress(noteDTO.getAddress()))
-				.setGroup(noteDTO.getGroup()).setNameFormatted(generateNoteFormatedFullName(noteDTO.getFullName()))
+				.setGroup(noteDTO.getGroup()).setFullNameFormatted(generateNoteFormatedFullName(noteDTO.getFullName()))
 				.setAddressFormatted(generateNoteFormattedAddress(noteDTO.getAddress()))
 				.setDateOfCreation(dateOfCreationUpdate).setDateOfUpdate(dateOfCreationUpdate).build();
 	}

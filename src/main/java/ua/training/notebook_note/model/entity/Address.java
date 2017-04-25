@@ -83,20 +83,18 @@ public final class Address {
 
 		@Override
 		public Address build() {
-
 			return new Address(this);
 		}
-
 	}
 
 	private Address(Builder builder) {
 		Objects.requireNonNull(builder);
 
-		this.index = builder.getIndex();
-		this.city = builder.getCity();
-		this.street = builder.getStreet();
-		this.houseNumber = builder.getHouseNumber();
-		this.apartmentNumber = builder.getApartmentNumber();
+		this.index = Objects.requireNonNull(builder.getIndex());
+		this.city = Objects.requireNonNull(builder.getCity());
+		this.street = Objects.requireNonNull(builder.getStreet());
+		this.houseNumber = Objects.requireNonNull(builder.getHouseNumber());
+		this.apartmentNumber = Objects.requireNonNull(builder.getApartmentNumber());
 	}
 
 	public String getIndex() {

@@ -40,6 +40,6 @@ public interface ViewMessage {
 	public String COLON = ": ";
 	public String EMPTY_STR = " ";
 	public String NEW_LINE = "\n";
-	public String BACKSLASH = "\\";
+	public String BACKSLASH = "/";
 
 }

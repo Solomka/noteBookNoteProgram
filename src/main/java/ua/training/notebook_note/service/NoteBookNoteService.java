@@ -29,13 +29,9 @@ public class NoteBookNoteService {
 	private NoteBookNoteDTO noteBookNoteDTO;
 
 	private NoteBookNoteService(Model model, View view, Scanner scanner) {
-		Objects.requireNonNull(model);
-		Objects.requireNonNull(view);
-		Objects.requireNonNull(scanner);
-
-		this.model = model;
-		this.view = view;
-		this.scanner = scanner;
+		this.model = Objects.requireNonNull(model);
+		this.view = Objects.requireNonNull(view);
+		this.scanner = Objects.requireNonNull(scanner);
 	}
 
 	/**

@@ -112,7 +112,7 @@ public final class NoteBookNoteBO {
 			return nameFormatted;
 		}
 
-		public Builder setNameFormatted(String nameFormatted) {
+		public Builder setFullNameFormatted(String nameFormatted) {
 			this.nameFormatted = nameFormatted;
 			return this;
 		}
@@ -154,16 +154,16 @@ public final class NoteBookNoteBO {
 	private NoteBookNoteBO(Builder builder) {
 		Objects.requireNonNull(builder);
 
-		this.fullName = builder.getFullName();
-		this.nickname = builder.getNickname();
-		this.contacts = builder.getContacts();
-		this.comment = builder.getComment();
-		this.address = builder.getAddress();
-		this.group = builder.getGroup();
-		this.nameFormatted = builder.getNameFormatted();
-		this.addressFormatted = builder.getAddressFormatted();
-		this.dateOfCreation = builder.getDateOfCreation();
-		this.dateOfUpdate = builder.getDateOfUpdate();
+		this.fullName = Objects.requireNonNull(builder.getFullName());
+		this.nickname = Objects.requireNonNull(builder.getNickname());
+		this.contacts = Objects.requireNonNull(builder.getContacts());
+		this.comment = Objects.requireNonNull(builder.getComment());
+		this.address = Objects.requireNonNull(builder.getAddress());
+		this.group = Objects.requireNonNull(builder.getGroup());
+		this.nameFormatted = Objects.requireNonNull(builder.getNameFormatted());
+		this.addressFormatted = Objects.requireNonNull(builder.getAddressFormatted());
+		this.dateOfCreation = Objects.requireNonNull(builder.getDateOfCreation());
+		this.dateOfUpdate = Objects.requireNonNull(builder.getDateOfUpdate());
 
 	}
 
