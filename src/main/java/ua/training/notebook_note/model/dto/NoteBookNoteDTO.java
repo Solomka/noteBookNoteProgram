@@ -2,6 +2,13 @@ package ua.training.notebook_note.model.dto;
 
 import ua.training.notebook_note.model.entity.types.Group;
 
+/**
+ * Class that represents notebook's note dto object that contains all the
+ * information about subscriber received from the console input
+ * 
+ * @author Solomka
+ *
+ */
 public class NoteBookNoteDTO {
 
 	private FullNameDTO fullName;

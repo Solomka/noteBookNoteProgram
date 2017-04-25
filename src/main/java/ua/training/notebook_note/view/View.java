@@ -4,8 +4,8 @@ import ua.training.notebook_note.model.entity.NoteBookNoteBO;
 
 /**
  * 
- * Class that represents View. It provides main user interface and displaying of
- * all the user's actions related messages
+ * Class that represents View and provides main user interface displaying all of
+ * the user actions' related messages
  * 
  * 
  * @author Solomka

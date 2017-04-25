@@ -4,6 +4,12 @@ import java.util.Objects;
 
 import ua.training.notebook_note.utils.IBuilder;
 
+/**
+ * immutable class that represents consistent subscriber's Address
+ * 
+ * @author Solomka
+ *
+ */
 public final class Address {
 
 	private final String index;
@@ -12,6 +18,12 @@ public final class Address {
 	private final String houseNumber;
 	private final String apartmentNumber;
 
+	/**
+	 * builder class that creates immutable instance of {@linkplain Address}
+	 * 
+	 * @author Solomka
+	 *
+	 */
 	public static class Builder implements IBuilder<Address> {
 
 		private String index;

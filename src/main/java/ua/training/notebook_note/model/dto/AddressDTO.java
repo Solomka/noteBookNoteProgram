@@ -1,5 +1,12 @@
 package ua.training.notebook_note.model.dto;
 
+/**
+ * Class that represents subscriber's address dto object that contains
+ * information about subscriber address received from the console input
+ * 
+ * @author Solomka
+ *
+ */
 public class AddressDTO {
 
 	private String index;

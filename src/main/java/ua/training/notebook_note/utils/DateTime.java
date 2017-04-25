@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
 /**
- * Class that represents LocalDateTime in specified format using
+ * Class that represents LocalDateTime in specified format using given
  * DateTimeFormatter
  * 
  * @author Solomka

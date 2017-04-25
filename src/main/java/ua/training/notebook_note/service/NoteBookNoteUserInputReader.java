@@ -16,7 +16,7 @@ import ua.training.notebook_note.view.ViewMessage;
 /**
  * Class that handles user's console input
  * <p>
- * This class reads user's input from console and returns it in a
+ * This class reads user's input from console and returns it saved in a
  * NoteBookNoteDTO object
  * 
  * @author Solomka
@@ -40,8 +40,7 @@ public class NoteBookNoteUserInputReader {
 	}
 
 	/**
-	 * Creates instance of this class and start's up reading user's console
-	 * input
+	 * Creates instance of this class and starts up reading user's console input
 	 * 
 	 * @param view
 	 *            view that represents data to the user
@@ -76,7 +75,7 @@ public class NoteBookNoteUserInputReader {
 	/**
 	 * reads subscriber's fullName from console
 	 * 
-	 * @return object that stores fullName subscriber's information
+	 * @return object that stores subscriber's fullName
 	 */
 	private FullNameDTO readNoteBookNoteFullNameInput() {
 		FullNameDTO fullName = new FullNameDTO();
@@ -91,9 +90,9 @@ public class NoteBookNoteUserInputReader {
 	}
 
 	/**
-	 * reads subscriber's contacts info from console
+	 * reads subscriber's contacts information from console
 	 * 
-	 * @return object that stores contacts subscriber's information
+	 * @return object that stores subscriber's contacts
 	 */
 	private ContactsDTO readNoteBookNoteContactsInput() {
 		ContactsDTO contacts = new ContactsDTO();
@@ -113,9 +112,9 @@ public class NoteBookNoteUserInputReader {
 	}
 
 	/**
-	 * reads subscriver's address from console
+	 * reads subscriber's address from console
 	 * 
-	 * @return object that stores contacts subscriber's address
+	 * @return object that stores subscriber's address
 	 */
 	private AddressDTO readNoteBookNoteAddressInput() {
 		AddressDTO address = new AddressDTO();
@@ -149,11 +148,11 @@ public class NoteBookNoteUserInputReader {
 	}
 
 	/**
-	 * check correctness of the
+	 * check correctness of the the input group value
 	 * 
-	 * @param int
-	 *            groupValue value of the group type
-	 * @return true if it's some group's type value , false otherwise
+	 * @param groupValue
+	 *            value of the group type
+	 * @return true if it's some group's value; false otherwise
 	 */
 	private boolean checkGroupValue(int groupValue) {
 		if ((groupValue < 0) || (groupValue > 1)) {

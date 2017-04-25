@@ -8,7 +8,7 @@ import ua.training.notebook_note.service.NoteBookNoteService;
 import ua.training.notebook_note.view.View;
 
 /**
- * Class that represents Controller and starts Service that processes notebook's
+ * Class that represents Controller and starts up Service that processes notebook's
  * note creation
  * 
  * @author Solomka

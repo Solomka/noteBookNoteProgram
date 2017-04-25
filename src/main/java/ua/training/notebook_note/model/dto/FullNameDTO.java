@@ -1,5 +1,12 @@
 package ua.training.notebook_note.model.dto;
 
+/**
+ * Class that represents subscriber's fullname dto object that contains
+ * information about subscriber fullname received from the console input
+ * 
+ * @author Solomka
+ *
+ */
 public class FullNameDTO {
 
 	private String name;

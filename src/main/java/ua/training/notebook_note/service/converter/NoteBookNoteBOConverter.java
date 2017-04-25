@@ -27,14 +27,14 @@ public final class NoteBookNoteBOConverter {
 	}
 
 	/**
-	 * generates consistent NoteBookNoteBO object
+	 * generates consistent NoteBookNoteBO object from NoteBookNoteDTO object
 	 * 
 	 * @param noteDTO
 	 *            dto objects that contains validated user's input from console
-	 * @return
+	 * @return validated consistent NoteBookNoteBO object
 	 */
 	public static NoteBookNoteBO fromNoteBookNoteDTO(final NoteBookNoteDTO noteDTO) {
-		
+
 		Objects.requireNonNull(noteDTO);
 
 		final DateTime dateOfCreationUpdate = generateDateOfCreationUpdate();
@@ -47,11 +47,27 @@ public final class NoteBookNoteBOConverter {
 				.setDateOfCreation(dateOfCreationUpdate).setDateOfUpdate(dateOfCreationUpdate).build();
 	}
 
+	/**
+	 * generates FullName object that contains subscriber's full name from
+	 * FullNameDTO object
+	 * 
+	 * @param fullNameDTO
+	 *            object that contains user's console fullName input
+	 * @return object that contains consistent subscriber's full name
+	 */
 	private static FullName generateFullName(FullNameDTO fullNameDTO) {
 		return new FullName(fullNameDTO.getName(), fullNameDTO.getSurname(), fullNameDTO.getPatronymic());
 
 	}
 
+	/**
+	 * generates Contacts object that contains subscriber's contacts form
+	 * ContactsDTO object
+	 * 
+	 * @param contactsDTO
+	 *            object that contains user's console contacts input
+	 * @return object that contains consistent subscriber's contacts
+	 */
 	private static Contacts generateContacts(final ContactsDTO contactsDTO) {
 		return new Contacts.Builder().setHomePhoneNum(contactsDTO.getHomePhoneNum())
 				.setMobilePhoneNumFirst(contactsDTO.getMobilePhoneNumFirst())
@@ -60,6 +76,14 @@ public final class NoteBookNoteBOConverter {
 
 	}
 
+	/**
+	 * generates Address objects that contains subscriber's address from
+	 * AddressDTO object
+	 * 
+	 * @param addressDTO
+	 *            object that contains user's console address input
+	 * @return object that contains consistent subscriber's address
+	 */
 	private static Address generateAddress(final AddressDTO addressDTO) {
 		return new Address.Builder().setCity(addressDTO.getCity()).setStreet(addressDTO.getStreet())
 				.setHouseNumber(addressDTO.getHouseNumber()).setApartmentNumber(addressDTO.getApartmentNumber())
@@ -67,12 +91,28 @@ public final class NoteBookNoteBOConverter {
 
 	}
 
+	/**
+	 * generates formatted subscriber's fullName String (Surname N.) from
+	 * FullNameDTO
+	 * 
+	 * @param fullNameDTO
+	 *            object that contains user's console fullName input
+	 * @return formatted subscriber's fullName String
+	 */
 	private static String generateNoteFormatedFullName(FullNameDTO fullNameDTO) {
 		return fullNameDTO.getSurname() + ViewMessage.EMPTY_STR + fullNameDTO.getName().substring(0, 1)
 				+ ViewMessage.FULL_STOP;
 
 	}
 
+	/**
+	 * generates formatted subscriber's address String (index, city, street,
+	 * house number/apartment number) from AddressDTO
+	 * 
+	 * @param addressDTO
+	 *            object that contains user's console address input
+	 * @return formatted subscriber's address String
+	 */
 	private static String generateNoteFormattedAddress(AddressDTO addressDTO) {
 		return addressDTO.getIndex() + ViewMessage.COMMA + addressDTO.getCity() + ViewMessage.COMMA
 				+ addressDTO.getStreet() + ViewMessage.COMMA + addressDTO.getHouseNumber() + ViewMessage.BACKSLASH
@@ -80,6 +120,11 @@ public final class NoteBookNoteBOConverter {
 
 	}
 
+	/**
+	 * get Date and Time of the notebook's note creation
+	 * 
+	 * @return
+	 */
 	private static DateTime generateDateOfCreationUpdate() {
 		return new DateTime();
 	}

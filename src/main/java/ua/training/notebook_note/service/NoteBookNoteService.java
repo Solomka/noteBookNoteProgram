@@ -10,10 +10,12 @@ import ua.training.notebook_note.service.converter.NoteBookNoteBOConverter;
 import ua.training.notebook_note.view.View;
 
 /**
- * Class that processes noteBook note creation
+ * Class that processes noteBooks' note creation
  * <p>
- * It invokes service that provides validated subscriber's information from
- * console and fulfill its adding to the model
+ * It invokes Service that provides validated subscriber's information as
+ * NoteBookNoteDTO object from console, invokes Converter that generates
+ * validated consistent NoteBookNoteBo object and fulfills its addition to the
+ * Model
  * 
  * @author Solomka
  *
@@ -37,7 +39,7 @@ public class NoteBookNoteService {
 	}
 
 	/**
-	 * Creates instance of this class and starts up noteBook note creation
+	 * Creates instance of this class and starts up noteBook's note creation
 	 * process
 	 * 
 	 * @param model
@@ -72,7 +74,8 @@ public class NoteBookNoteService {
 	}
 
 	/**
-	 * creates validated consistent noteBook's note object
+	 * invokes converter that creates validated consistent noteBook's note
+	 * object
 	 * 
 	 * @return validated consistent noteBook's note object
 	 */

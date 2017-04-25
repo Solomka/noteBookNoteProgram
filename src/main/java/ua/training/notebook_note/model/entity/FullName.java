@@ -1,5 +1,11 @@
 package ua.training.notebook_note.model.entity;
 
+/**
+ * immutable class that represents consistent subscriber's FullName
+ * 
+ * @author Solomka
+ *
+ */
 public final class FullName {
 
 	private final String name;

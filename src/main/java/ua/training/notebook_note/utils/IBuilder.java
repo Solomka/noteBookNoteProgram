@@ -9,7 +9,7 @@ package ua.training.notebook_note.utils;
  * @author Solomka
  *
  * @param <T>
- *            creating object type
+ *            the generic type of the creating object
  */
 public interface IBuilder<T> {
 	T build();

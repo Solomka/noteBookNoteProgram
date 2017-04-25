@@ -7,7 +7,8 @@ import ua.training.notebook_note.utils.DateTime;
 import ua.training.notebook_note.utils.IBuilder;
 
 /**
- * immutable class that represents consistent notebook's note
+ * immutable class that represents consistent notebook's note object that
+ * contains all the information about subscriber
  * 
  * @author Solomka
  *

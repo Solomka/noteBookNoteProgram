@@ -4,6 +4,12 @@ import java.util.Objects;
 
 import ua.training.notebook_note.utils.IBuilder;
 
+/**
+ * immutable class that represents consistent subscriber's Contacts
+ * 
+ * @author Solomka
+ *
+ */
 public final class Contacts {
 
 	private final String homePhoneNum;
@@ -12,6 +18,12 @@ public final class Contacts {
 	private final String email;
 	private final String skype;
 
+	/**
+	 * builder class that creates immutable instance of {@linkplain Contacts}
+	 * 
+	 * @author Solomka
+	 *
+	 */
 	public static class Builder implements IBuilder<Contacts> {
 
 		private String homePhoneNum;

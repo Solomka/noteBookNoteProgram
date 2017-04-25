@@ -1,5 +1,12 @@
 package ua.training.notebook_note.model.dto;
 
+/**
+ * Class that represents subscriber's contacts dto object that contains
+ * information about subscriber contacts received from the console input
+ * 
+ * @author Solomka
+ *
+ */
 public class ContactsDTO {
 
 	private String homePhoneNum;
