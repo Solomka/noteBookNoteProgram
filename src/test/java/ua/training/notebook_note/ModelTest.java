@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import ua.training.notebook_note.exception.RepeatedNicknameException;
 import ua.training.notebook_note.model.Model;
 import ua.training.notebook_note.model.entity.Address;
 import ua.training.notebook_note.model.entity.Contacts;
@@ -15,12 +16,12 @@ import ua.training.notebook_note.utils.DateTime;
 public class ModelTest {
 
 	@Test(expected = NullPointerException.class)
-	public void testMainConstructorWithParams() {
+	public void testMainConstructorWithParams() throws RepeatedNicknameException {
 		new Model(null);
 	}
 
 	@Test
-	public void testSetNoteBookNoteBO() {
+	public void testSetNoteBookNoteBO() throws RepeatedNicknameException {
 
 		Model model = new Model();
 		NoteBookNoteBO expectedNoteBO = generateTestNoteBookNoteBO();
@@ -32,7 +33,7 @@ public class ModelTest {
 	}
 
 	@Test(expected = NullPointerException.class)
-	public void testSetNoteBookNoteBONullPointerException() {
+	public void testSetNoteBookNoteBONullPointerException() throws RepeatedNicknameException {
 
 		Model model = new Model();
 		model.setNoteBookNoteBO(null);

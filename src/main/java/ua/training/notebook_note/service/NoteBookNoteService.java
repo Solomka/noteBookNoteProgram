@@ -3,6 +3,7 @@ package ua.training.notebook_note.service;
 import java.util.Objects;
 import java.util.Scanner;
 
+import ua.training.notebook_note.exception.RepeatedNicknameException;
 import ua.training.notebook_note.model.Model;
 import ua.training.notebook_note.model.dto.NoteBookNoteDTO;
 import ua.training.notebook_note.model.entity.NoteBookNoteBO;
@@ -50,31 +51,29 @@ public class NoteBookNoteService {
 		new NoteBookNoteService(model, view, scanner).processNoteBookNoteCreation();
 	}
 
-	/**
-	 * receives validated user's input from NoteBookNoteUserInputReader and
-	 * invokes method that passes it to the model
-	 */
 	private void processNoteBookNoteCreation() {
 		noteBookNoteDTO = NoteBookNoteUserInputReader.readNoteBookNoteUserInput(view, scanner);
 		addNoteBookNoteToModel();
 	}
 
-	/**
-	 * invokes method that creates consistent noteBook's note object and saves
-	 * it to the model
-	 */
 	private void addNoteBookNoteToModel() {
 		final NoteBookNoteBO noteBookNoteBO = createNoteBookNoteBO();
 
-		model.setNoteBookNoteBO(noteBookNoteBO);
+		try {
+			model.setNoteBookNoteBO(noteBookNoteBO);
+		} catch (RepeatedNicknameException e) {
+			// System.err.println(e.getMessage());
+			repeatNoteBookNoteCreation();
+
+		}
 	}
 
-	/**
-	 * invokes converter that creates validated consistent noteBook's note
-	 * object
-	 * 
-	 * @return validated consistent noteBook's note object
-	 */
+	private void repeatNoteBookNoteCreation() {
+		noteBookNoteDTO = NoteBookNoteUserInputReader.readNoteBookNoteUserInput(view, scanner, noteBookNoteDTO);
+		addNoteBookNoteToModel();
+
+	}
+
 	private NoteBookNoteBO createNoteBookNoteBO() {
 		return NoteBookNoteBOConverter.fromNoteBookNoteDTO(noteBookNoteDTO);
 	}

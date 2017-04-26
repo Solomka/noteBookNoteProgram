@@ -32,6 +32,8 @@ public interface ViewMessage {
 	public String ADDRESS_INDEX = "post index";
 
 	public String WRONG_INPUT = "Wrong input. Try again!";
+	
+	public String NICKNAME_EXCEPTION_MESSAGE = "Subsciber with such nickname already exists";
 
 	public String LEFT_PARENTHESIS = "[ ";
 	public String RIGHT_PARANTHESIS = " ]";

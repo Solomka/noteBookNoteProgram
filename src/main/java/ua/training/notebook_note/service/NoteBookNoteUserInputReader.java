@@ -29,33 +29,28 @@ public class NoteBookNoteUserInputReader {
 
 	private NoteBookNoteDTO noteDTO;
 
-	private NoteBookNoteUserInputReader(View view, Scanner scanner) {
+	private NoteBookNoteUserInputReader(View view, Scanner scanner, NoteBookNoteDTO noteDTO) {
 		this.view = Objects.requireNonNull(view);
 		this.scanner = Objects.requireNonNull(scanner);
 
-		this.noteDTO = new NoteBookNoteDTO();
+		this.noteDTO = Objects.requireNonNull(noteDTO);
 	}
 
-	/**
-	 * Creates instance of this class and starts up reading user's console input
-	 * 
-	 * @param view
-	 *            view that represents data to the user
-	 * @param scanner
-	 *            simple text scanner which can parse primitive types and
-	 *            strings using regular expressions
-	 * @return object that contains validated user's input
-	 */
 	public static NoteBookNoteDTO readNoteBookNoteUserInput(View view, Scanner scanner) {
-		return new NoteBookNoteUserInputReader(view, scanner).readNoteBookNoteUserInput();
+		return new NoteBookNoteUserInputReader(view, scanner, new NoteBookNoteDTO()).readNoteBookNoteUserInput();
 	}
 
-	/**
-	 * reads and validates user's console input and stores it in the
-	 * NoteBookNoteDTO object
-	 * 
-	 * @return
-	 */
+	public static NoteBookNoteDTO readNoteBookNoteUserInput(View view, Scanner scanner, NoteBookNoteDTO noteDTO) {
+		return new NoteBookNoteUserInputReader(view, scanner, noteDTO).repeatNicknameUserInput();
+	}
+
+	private NoteBookNoteDTO repeatNicknameUserInput() {
+		view.printMessage(ViewMessage.NICKNAME_EXCEPTION_MESSAGE);
+		noteDTO.setNickname(UserInputProcessUtility.inputStringValue(scanner, view, ViewMessage.NICKNAME,
+				RegexContainer.NICKNAME_REGEX));
+		return noteDTO;
+	}
+
 	private NoteBookNoteDTO readNoteBookNoteUserInput() {
 
 		noteDTO.setFullName(readNoteBookNoteFullNameInput());
@@ -69,11 +64,6 @@ public class NoteBookNoteUserInputReader {
 		return noteDTO;
 	}
 
-	/**
-	 * reads subscriber's fullName from console
-	 * 
-	 * @return object that stores subscriber's fullName
-	 */
 	private FullNameDTO readNoteBookNoteFullNameInput() {
 		FullNameDTO fullName = new FullNameDTO();
 		fullName.setName(UserInputProcessUtility.inputStringValue(scanner, view, ViewMessage.NAME,
@@ -86,11 +76,6 @@ public class NoteBookNoteUserInputReader {
 		return fullName;
 	}
 
-	/**
-	 * reads subscriber's contacts information from console
-	 * 
-	 * @return object that stores subscriber's contacts
-	 */
 	private ContactsDTO readNoteBookNoteContactsInput() {
 		ContactsDTO contacts = new ContactsDTO();
 		contacts.setHomePhoneNum(UserInputProcessUtility.inputStringValue(scanner, view, ViewMessage.HOME_PHONE_NUM,
@@ -108,11 +93,6 @@ public class NoteBookNoteUserInputReader {
 
 	}
 
-	/**
-	 * reads subscriber's address from console
-	 * 
-	 * @return object that stores subscriber's address
-	 */
 	private AddressDTO readNoteBookNoteAddressInput() {
 		AddressDTO address = new AddressDTO();
 		address.setCity(UserInputProcessUtility.inputStringValue(scanner, view, ViewMessage.ADDRESS_CITY,
@@ -130,11 +110,6 @@ public class NoteBookNoteUserInputReader {
 
 	}
 
-	/**
-	 * reads sunscriber's group from console
-	 * 
-	 * @return subscriber's group type
-	 */
 	private Group readNoteBookNoteGroupInput() {
 		int groupValue = UserInputProcessUtility.inputIntValue(scanner, view, ViewMessage.GROUP);
 		while (!checkGroupValue(groupValue)) {

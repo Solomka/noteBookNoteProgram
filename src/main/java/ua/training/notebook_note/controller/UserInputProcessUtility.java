@@ -37,7 +37,13 @@ public final class UserInputProcessUtility {
 			view.printMessage(ViewMessage.TYPE, message, ViewMessage.COLON);
 			scanner.next();
 		}
-		return scanner.nextInt();
+
+		int result = scanner.nextInt();
+
+		// consume the last newline character of the user's int input
+		scanner.nextLine();
+
+		return result;
 	}
 
 	/**

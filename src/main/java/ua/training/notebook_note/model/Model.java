@@ -2,7 +2,9 @@ package ua.training.notebook_note.model;
 
 import java.util.Objects;
 
+import ua.training.notebook_note.exception.RepeatedNicknameException;
 import ua.training.notebook_note.model.entity.NoteBookNoteBO;
+import ua.training.notebook_note.view.ViewMessage;
 
 /**
  * Class that represents Model and contains information about NoteBook note
@@ -18,7 +20,7 @@ public class Model {
 	public Model() {
 	}
 
-	public Model(NoteBookNoteBO noteBookNoteBO) {
+	public Model(NoteBookNoteBO noteBookNoteBO) throws RepeatedNicknameException {
 		setNoteBookNoteBO(noteBookNoteBO);
 	}
 
@@ -26,8 +28,14 @@ public class Model {
 		return noteBookNoteBO;
 	}
 
-	public void setNoteBookNoteBO(NoteBookNoteBO noteBookNoteBO) {
-		this.noteBookNoteBO = Objects.requireNonNull(noteBookNoteBO);
+	public void setNoteBookNoteBO(NoteBookNoteBO noteBookNoteBO) throws RepeatedNicknameException {
+		Objects.requireNonNull(noteBookNoteBO);
+
+		if (noteBookNoteBO.getNickname().equals(ModelExistentNickname.SOLOMKA.getValue())) {
+			throw new RepeatedNicknameException(ViewMessage.NICKNAME_EXCEPTION_MESSAGE);
+		} else {
+			this.noteBookNoteBO = noteBookNoteBO;
+		}
 	}
 
 }
