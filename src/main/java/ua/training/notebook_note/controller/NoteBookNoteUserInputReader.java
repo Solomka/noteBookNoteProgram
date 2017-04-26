@@ -1,4 +1,4 @@
-package ua.training.notebook_note.service;
+package ua.training.notebook_note.controller;
 
 import java.util.Objects;
 import java.util.Scanner;

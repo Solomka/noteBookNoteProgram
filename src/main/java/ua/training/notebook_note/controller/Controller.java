@@ -3,7 +3,9 @@ package ua.training.notebook_note.controller;
 import java.util.Objects;
 import java.util.Scanner;
 
+import ua.training.notebook_note.exception.RepeatedNicknameException;
 import ua.training.notebook_note.model.Model;
+import ua.training.notebook_note.model.dto.NoteBookNoteDTO;
 import ua.training.notebook_note.service.NoteBookNoteService;
 import ua.training.notebook_note.view.View;
 
@@ -30,8 +32,17 @@ public class Controller {
 	 */
 	public void processUser() {
 		Scanner scanner = new Scanner(System.in);
+		
+		NoteBookNoteDTO noteBookNoteDTO = NoteBookNoteUserInputReader.readNoteBookNoteUserInput(view, scanner);
+		try {
+			NoteBookNoteService.processNoteBookNoteModelAddition(noteBookNoteDTO);
+		} catch (RepeatedNicknameException e) {
+			//System.err.println(e.getMessage());
+			noteBookNoteDTO = NoteBookNoteUserInputReader.readNoteBookNoteUserInput(view, scanner, noteBookNoteDTO);
+			NoteBookNoteService.processNoteBookNoteModelAddition(noteBookNoteDTO);
+		}
 
-		NoteBookNoteService.processNoteBookNoteCreation(model, view, scanner);
+		
 		view.printNoteBookNote(model.getNoteBooNoteBO());
 	}
 
