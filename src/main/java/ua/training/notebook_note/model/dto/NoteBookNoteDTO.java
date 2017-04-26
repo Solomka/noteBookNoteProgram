@@ -10,7 +10,7 @@ import ua.training.notebook_note.model.entity.types.Group;
  *
  */
 public class NoteBookNoteDTO {
-
+	
 	private FullNameDTO fullName;
 	private String nickname;
 	private ContactsDTO contacts;
@@ -24,7 +24,7 @@ public class NoteBookNoteDTO {
 
 	public NoteBookNoteDTO(FullNameDTO fullName, String nickname, ContactsDTO contacts, String comment,
 			AddressDTO address, Group group) {
-
+		
 		this.fullName = fullName;
 		this.nickname = nickname;
 		this.contacts = contacts;

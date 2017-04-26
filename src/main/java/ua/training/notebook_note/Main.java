@@ -7,7 +7,10 @@ import ua.training.notebook_note.view.View;
 /**
  * Main class starts up the program that reads subscriber's information from
  * console, validate it and saves validated information in the Model's
- * notebook's note object
+ * notebook's note object.
+ * <p>
+ * If user inputs subscriber's information with existent nickname program asks
+ * user to change nickname input
  * 
  * @author Solomka
  * @version 1.0

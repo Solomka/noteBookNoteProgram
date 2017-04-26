@@ -3,6 +3,7 @@ package ua.training.notebook_note.model.entity;
 import java.util.Objects;
 
 import ua.training.notebook_note.utils.IBuilder;
+import ua.training.notebook_note.view.ViewMessage;
 
 /**
  * immutable class that represents consistent subscriber's Address
@@ -18,12 +19,6 @@ public final class Address {
 	private final String houseNumber;
 	private final String apartmentNumber;
 
-	/**
-	 * builder class that creates immutable instance of {@linkplain Address}
-	 * 
-	 * @author Solomka
-	 *
-	 */
 	public static class Builder implements IBuilder<Address> {
 
 		private String index;
@@ -119,8 +114,16 @@ public final class Address {
 
 	@Override
 	public String toString() {
-		return "Address { index=" + index + ", city=" + city + ", street=" + street + ", houseNumber=" + houseNumber
-				+ ", apartmentNumber=" + apartmentNumber + " }";
+		return new StringBuilder(ViewMessage.ADDRESS).append(ViewMessage.LEFT_PARENTHESIS).append(ViewMessage.EMPTY_STR)
+				.append(ViewMessage.ADDRESS_INDEX).append(ViewMessage.COLON).append(getIndex())
+				.append(ViewMessage.COMMA).append(ViewMessage.EMPTY_STR).append(ViewMessage.ADDRESS_CITY)
+				.append(ViewMessage.COLON).append(getCity()).append(ViewMessage.COMMA).append(ViewMessage.EMPTY_STR)
+				.append(ViewMessage.ADDRESS_STREET).append(ViewMessage.COLON).append(getCity())
+				.append(ViewMessage.COMMA).append(ViewMessage.EMPTY_STR).append(ViewMessage.ADDRESS_HOUSE_NUM)
+				.append(ViewMessage.COLON).append(getHouseNumber()).append(ViewMessage.COMMA)
+				.append(ViewMessage.EMPTY_STR).append(ViewMessage.ADDRESS_APPART_NUM).append(ViewMessage.COLON)
+				.append(getApartmentNumber()).append(ViewMessage.EMPTY_STR).append(ViewMessage.RIGHT_PARANTHESIS)
+				.toString();
 	}
 
 }

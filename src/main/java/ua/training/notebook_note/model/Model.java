@@ -31,11 +31,26 @@ public class Model {
 	public void setNoteBookNoteBO(NoteBookNoteBO noteBookNoteBO) throws RepeatedNicknameException {
 		Objects.requireNonNull(noteBookNoteBO);
 
-		if (noteBookNoteBO.getNickname().equals(ModelExistentNickname.SOLOMKA.getValue())) {
+		if (checkIfNicknameExists(noteBookNoteBO.getNickname())) {
 			throw new RepeatedNicknameException(ViewMessage.NICKNAME_EXCEPTION_MESSAGE);
-		} else {
-			this.noteBookNoteBO = noteBookNoteBO;
 		}
+		this.noteBookNoteBO = noteBookNoteBO;
 	}
 
+	/**
+	 * check if note with such subscriber's nickname already exists in the model
+	 * 
+	 * @param nickname
+	 *            nickname of the adding subscriber's note
+	 * @return true if subscriber's note with such subscriber's nickname already
+	 *         exists in the model; false otherwise
+	 */
+	private boolean checkIfNicknameExists(String nickname) {
+		for (ModelExistentNickname existentNickname : ModelExistentNickname.values()) {
+			if (existentNickname.getValue().equals(nickname)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

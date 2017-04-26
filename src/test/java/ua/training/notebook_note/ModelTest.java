@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import ua.training.notebook_note.exception.RepeatedNicknameException;
 import ua.training.notebook_note.model.Model;
+import ua.training.notebook_note.model.ModelExistentNickname;
 import ua.training.notebook_note.model.entity.Address;
 import ua.training.notebook_note.model.entity.Contacts;
 import ua.training.notebook_note.model.entity.FullName;
@@ -39,9 +40,31 @@ public class ModelTest {
 		model.setNoteBookNoteBO(null);
 	}
 
+	@Test(expected = RepeatedNicknameException.class)
+	public void testSetNoteBookNoteBORepeatedNicknameException() throws RepeatedNicknameException {
+
+		Model model = new Model();
+		model.setNoteBookNoteBO(generateTestNoteBookNoteBOWithExistentNickname());
+	}
+
 	private NoteBookNoteBO generateTestNoteBookNoteBO() {
 
 		String nickName = "test@test";
+		String comment = "fine";
+		String fullNameF = "Test T.";
+		String addressF = "05678, Lviv, Klonovycha str., 14/6";
+		DateTime dateTime = new DateTime();
+
+		NoteBookNoteBO noteBO = new NoteBookNoteBO.Builder().setFullName(generateFullName()).setNickname(nickName)
+				.setContacts(generateContacts()).setAddress(generateAddress()).setFullNameFormatted(fullNameF)
+				.setAddressFormatted(addressF).setComment(comment).setGroup(Group.SIMPLE_CLIENT)
+				.setDateOfCreation(dateTime).setDateOfUpdate(dateTime).build();
+		return noteBO;
+	}
+
+	private NoteBookNoteBO generateTestNoteBookNoteBOWithExistentNickname() {
+
+		String nickName = ModelExistentNickname.SOLOMKA.getValue();
 		String comment = "fine";
 		String fullNameF = "Test T.";
 		String addressF = "05678, Lviv, Klonovycha str., 14/6";

@@ -8,7 +8,7 @@ package ua.training.notebook_note.model.dto;
  *
  */
 public class FullNameDTO {
-
+	
 	private String name;
 	private String surname;
 	private String patronymic;
@@ -18,7 +18,7 @@ public class FullNameDTO {
 	}
 
 	public FullNameDTO(String name, String surname, String patronymic) {
-
+		
 		this.name = name;
 		this.surname = surname;
 		this.patronymic = patronymic;
@@ -47,5 +47,4 @@ public class FullNameDTO {
 	public void setPatronymic(String patronymic) {
 		this.patronymic = patronymic;
 	}
-
 }

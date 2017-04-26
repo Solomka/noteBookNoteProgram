@@ -8,7 +8,7 @@ package ua.training.notebook_note.model.dto;
  *
  */
 public class ContactsDTO {
-
+	
 	private String homePhoneNum;
 	private String mobilePhoneNumFirst;
 	private String mobilePhoneNumSecond;
@@ -21,7 +21,7 @@ public class ContactsDTO {
 
 	public ContactsDTO(String homePhoneNum, String mobilePhoneNumFirst, String mobilePhoneNumSecond, String email,
 			String skype) {
-
+		
 		this.homePhoneNum = homePhoneNum;
 		this.mobilePhoneNumFirst = mobilePhoneNumFirst;
 		this.mobilePhoneNumSecond = mobilePhoneNumSecond;
@@ -68,5 +68,4 @@ public class ContactsDTO {
 	public void setSkype(String skype) {
 		this.skype = skype;
 	}
-
 }

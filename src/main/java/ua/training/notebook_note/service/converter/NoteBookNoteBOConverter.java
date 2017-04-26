@@ -123,7 +123,7 @@ public final class NoteBookNoteBOConverter {
 	/**
 	 * get Date and Time of the notebook's note creation
 	 * 
-	 * @return
+	 * @return current DateTime formatted in FormatStyle.SHORT
 	 */
 	private static DateTime generateDateOfCreationUpdate() {
 		return new DateTime();

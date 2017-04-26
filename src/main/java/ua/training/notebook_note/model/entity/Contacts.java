@@ -3,6 +3,7 @@ package ua.training.notebook_note.model.entity;
 import java.util.Objects;
 
 import ua.training.notebook_note.utils.IBuilder;
+import ua.training.notebook_note.view.ViewMessage;
 
 /**
  * immutable class that represents consistent subscriber's Contacts
@@ -18,12 +19,6 @@ public final class Contacts {
 	private final String email;
 	private final String skype;
 
-	/**
-	 * builder class that creates immutable instance of {@linkplain Contacts}
-	 * 
-	 * @author Solomka
-	 *
-	 */
 	public static class Builder implements IBuilder<Contacts> {
 
 		private String homePhoneNum;
@@ -120,8 +115,17 @@ public final class Contacts {
 
 	@Override
 	public String toString() {
-		return "Contacts { homePhoneNum=" + homePhoneNum + ", mobilePhoneNumFirst=" + mobilePhoneNumFirst
-				+ ", mobilePhoneNumSecond=" + mobilePhoneNumSecond + ", email=" + email + ", skype=" + skype + " }";
+
+		return new StringBuilder(ViewMessage.CONTACTS).append(ViewMessage.LEFT_PARENTHESIS)
+				.append(ViewMessage.EMPTY_STR).append(ViewMessage.HOME_PHONE_NUM).append(ViewMessage.COLON)
+				.append(getHomePhoneNum()).append(ViewMessage.COMMA).append(ViewMessage.EMPTY_STR)
+				.append(ViewMessage.MOB_PHONE_NUM_1).append(ViewMessage.COLON).append(getMobilePhoneNumFirst())
+				.append(ViewMessage.COMMA).append(ViewMessage.EMPTY_STR).append(ViewMessage.MOB_PHONE_NUM_2)
+				.append(ViewMessage.COLON).append(getMobilePhoneNumSecond()).append(ViewMessage.COMMA)
+				.append(ViewMessage.EMPTY_STR).append(ViewMessage.EMAIL).append(ViewMessage.COLON).append(getEmail())
+				.append(ViewMessage.COMMA).append(ViewMessage.EMPTY_STR).append(ViewMessage.SKYPE)
+				.append(ViewMessage.COLON).append(getSkype()).append(ViewMessage.EMPTY_STR)
+				.append(ViewMessage.RIGHT_PARANTHESIS).toString();
 	}
 
 }
