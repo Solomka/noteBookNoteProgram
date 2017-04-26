@@ -10,40 +10,49 @@ import ua.training.notebook_note.service.NoteBookNoteService;
 import ua.training.notebook_note.view.View;
 
 /**
- * Class that represents Controller and starts up Service that processes
- * notebook's note creation
+ * Class that represents Controller and handles user's notebook's note input and
+ * its further adding process to the model
+ *
  * 
  * @author Solomka
  *
  */
 public class Controller {
-
-	private Model model;
+	
 	private View view;
+	private Model model;	
+	private Scanner scanner;
+	private NoteBookNoteDTO noteBookNoteDTO;
 
 	public Controller(Model model, View view) {
-
-		this.model = Objects.requireNonNull(model);
+		
 		this.view = Objects.requireNonNull(view);
+		this.model = Objects.requireNonNull(model);
+		this.scanner = new Scanner(System.in);
+		this.noteBookNoteDTO = new NoteBookNoteDTO();
 	}
 
-	/**
-	 * Starts up NoteBookNoteService that process notebook's note creation
-	 */
 	public void processUser() {
-		Scanner scanner = new Scanner(System.in);
-		
-		NoteBookNoteDTO noteBookNoteDTO = NoteBookNoteUserInputReader.readNoteBookNoteUserInput(view, scanner);
-		try {
-			NoteBookNoteService.processNoteBookNoteModelAddition(noteBookNoteDTO);
-		} catch (RepeatedNicknameException e) {
-			//System.err.println(e.getMessage());
-			noteBookNoteDTO = NoteBookNoteUserInputReader.readNoteBookNoteUserInput(view, scanner, noteBookNoteDTO);
-			NoteBookNoteService.processNoteBookNoteModelAddition(noteBookNoteDTO);
-		}
+		noteBookNoteDTO = NoteBookNoteUserInputReader.readNoteBookNoteUserInput(view, scanner);
 
-		
+		addNoteBookNoteToModel();
 		view.printNoteBookNote(model.getNoteBooNoteBO());
+	}
+
+	private void addNoteBookNoteToModel() {
+		try {
+			NoteBookNoteService.processNoteBookNoteModelAddition(model, noteBookNoteDTO);
+		} catch (RepeatedNicknameException e) {
+			// System.err.println(e.getMessage());
+			repeatNoteNicknameUserInput();
+		}
+	}
+
+	private void repeatNoteNicknameUserInput() {
+		noteBookNoteDTO = NoteBookNoteUserInputReader.readNoteBookNoteUserInput(view, scanner, noteBookNoteDTO);
+
+		addNoteBookNoteToModel();
+
 	}
 
 }

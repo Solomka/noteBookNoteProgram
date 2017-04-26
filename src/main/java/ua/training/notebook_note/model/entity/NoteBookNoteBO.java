@@ -5,6 +5,7 @@ import java.util.Objects;
 import ua.training.notebook_note.model.entity.types.Group;
 import ua.training.notebook_note.utils.DateTime;
 import ua.training.notebook_note.utils.IBuilder;
+import ua.training.notebook_note.view.ViewMessage;
 
 /**
  * immutable class that represents consistent notebook's note object that
@@ -28,13 +29,6 @@ public final class NoteBookNoteBO {
 	private final DateTime dateOfCreation;
 	private final DateTime dateOfUpdate;
 
-	/**
-	 * builder class that creates immutable instance of
-	 * {@linkplain NoteBookNoteBO}
-	 * 
-	 * @author Solomka
-	 *
-	 */
 	public static class Builder implements IBuilder<NoteBookNoteBO> {
 
 		private FullName fullName;
@@ -209,10 +203,22 @@ public final class NoteBookNoteBO {
 
 	@Override
 	public String toString() {
-		return "NoteBookNote { " + '\n' + fullName + ",\nNickname=" + nickname + ",\n" + contacts + ",\nComment="
-				+ comment + ",\n" + address + ",\ngroup=" + group + ",\nNameFormatted=" + nameFormatted
-				+ ",\nAddressFormatted=" + addressFormatted + ",\nDateOfCreation=" + dateOfCreation + ",\nDateOfUpdate="
-				+ dateOfUpdate + "}";
+		return new StringBuilder(ViewMessage.NOTEBOOK_NOTE).append(ViewMessage.LEFT_PARENTHESIS)
+				.append(ViewMessage.NEW_LINE).append(getFullName()).append(ViewMessage.COMMA)
+				.append(ViewMessage.NEW_LINE).append(ViewMessage.NICKNAME).append(ViewMessage.COLON)
+				.append(getNickname()).append(ViewMessage.COMMA).append(ViewMessage.NEW_LINE).append(getContacts())
+				.append(ViewMessage.COMMA).append(ViewMessage.NEW_LINE).append(ViewMessage.COMMENT)
+				.append(ViewMessage.COLON).append(getComment()).append(ViewMessage.COMMA).append(ViewMessage.NEW_LINE)
+				.append(getAddress()).append(ViewMessage.COMMA).append(ViewMessage.NEW_LINE).append(ViewMessage.GROUP)
+				.append(ViewMessage.COLON).append(getGroup()).append(ViewMessage.COMMA).append(ViewMessage.NEW_LINE)
+				.append(ViewMessage.FULLNAME_FORMATTED).append(ViewMessage.COLON).append(getNameFormatted())
+				.append(ViewMessage.COMMA).append(ViewMessage.NEW_LINE).append(ViewMessage.ADDRESS_FORMATTED)
+				.append(ViewMessage.COLON).append(getAddressFormatted()).append(ViewMessage.COMMA)
+				.append(ViewMessage.NEW_LINE).append(ViewMessage.DATE_OF_CREATION).append(ViewMessage.COLON)
+				.append(getDateOfCreation()).append(ViewMessage.COMMA).append(ViewMessage.NEW_LINE)
+				.append(ViewMessage.DATE_OF_UPDATE).append(ViewMessage.COLON).append(getDateOfUpdate())
+				.append(ViewMessage.RIGHT_PARANTHESIS).toString();
+
 	}
 
 }

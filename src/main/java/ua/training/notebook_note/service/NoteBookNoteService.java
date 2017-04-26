@@ -9,12 +9,7 @@ import ua.training.notebook_note.model.entity.NoteBookNoteBO;
 import ua.training.notebook_note.service.converter.NoteBookNoteBOConverter;
 
 /**
- * Class that processes noteBooks' note creation
- * <p>
- * It invokes Service that provides validated subscriber's information as
- * NoteBookNoteDTO object from console, invokes Converter that generates
- * validated consistent NoteBookNoteBo object and fulfills its addition to the
- * Model
+ * Class that processes noteBooks' note adding to the model
  * 
  * @author Solomka
  *
@@ -25,17 +20,20 @@ public class NoteBookNoteService {
 
 	private NoteBookNoteDTO noteBookNoteDTO;
 
-	private NoteBookNoteService(NoteBookNoteDTO noteBookNoteDTO) {
+	private NoteBookNoteService(Model model, NoteBookNoteDTO noteBookNoteDTO) {
+		
 		this.noteBookNoteDTO = Objects.requireNonNull(noteBookNoteDTO);
-		this.model = new Model();
+		this.model = Objects.requireNonNull(model);
 	}
 
-	public static void processNoteBookNoteModelAddition(NoteBookNoteDTO noteBookNoteDTO) throws RepeatedNicknameException {
-		new NoteBookNoteService(noteBookNoteDTO).processNoteBookNoteModelAddition();
+	public static void processNoteBookNoteModelAddition(Model model, NoteBookNoteDTO noteBookNoteDTO)
+			throws RepeatedNicknameException {
+		new NoteBookNoteService(model, noteBookNoteDTO).processNoteBookNoteModelAddition();
 	}
 
 	private void processNoteBookNoteModelAddition() throws RepeatedNicknameException {
 		final NoteBookNoteBO noteBookNoteBO = createNoteBookNoteBO();
+		
 		model.setNoteBookNoteBO(noteBookNoteBO);
 	}
 

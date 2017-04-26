@@ -8,7 +8,7 @@ package ua.training.notebook_note.model.dto;
  *
  */
 public class AddressDTO {
-
+	
 	private String index;
 	private String city;
 	private String street;
@@ -20,7 +20,7 @@ public class AddressDTO {
 	}
 
 	public AddressDTO(String index, String city, String street, String houseNumber, String apartmentNumber) {
-
+		
 		this.index = index;
 		this.city = city;
 		this.street = street;
@@ -67,5 +67,4 @@ public class AddressDTO {
 	public void setApartmentNumber(String apartmentNumber) {
 		this.apartmentNumber = apartmentNumber;
 	}
-
 }

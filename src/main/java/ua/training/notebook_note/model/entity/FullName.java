@@ -2,6 +2,8 @@ package ua.training.notebook_note.model.entity;
 
 import java.util.Objects;
 
+import ua.training.notebook_note.view.ViewMessage;
+
 /**
  * immutable class that represents consistent subscriber's FullName
  * 
@@ -35,7 +37,13 @@ public final class FullName {
 
 	@Override
 	public String toString() {
-		return "FullName { name=" + name + ", surname=" + surname + ", patronymic=" + patronymic + " }";
+		return new StringBuilder(ViewMessage.FULLNAME).append(ViewMessage.LEFT_PARENTHESIS)
+				.append(ViewMessage.EMPTY_STR).append(ViewMessage.NAME).append(ViewMessage.COLON).append(getName())
+				.append(ViewMessage.COMMA).append(ViewMessage.EMPTY_STR).append(ViewMessage.SURNAME)
+				.append(ViewMessage.COLON).append(getSurname()).append(ViewMessage.COMMA).append(ViewMessage.EMPTY_STR)
+				.append(ViewMessage.PATRONYMIC).append(ViewMessage.COLON).append(getPatronymic())
+				.append(ViewMessage.EMPTY_STR).append(ViewMessage.RIGHT_PARANTHESIS)
+				.toString();
 	}
 
 }

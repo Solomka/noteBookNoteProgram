@@ -28,7 +28,5 @@ public enum ModelExistentNickname {
 			}
 		}
 		return null;
-
 	}
-
 }

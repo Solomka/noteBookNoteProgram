@@ -64,12 +64,13 @@ public final class UserInputProcessUtility {
 	 */
 	public static String inputStringValue(Scanner scanner, View view, String message, String regex) {
 		view.printMessage(ViewMessage.TYPE, message, ViewMessage.COLON);
+
 		String res = "";
 		while (!(scanner.hasNextLine() && (res = scanner.nextLine()).matches(regex))) {
 			view.printWrongInput();
 			view.printMessage(ViewMessage.TYPE, message, ViewMessage.COLON);
 		}
+
 		return res;
 	}
-
 }
