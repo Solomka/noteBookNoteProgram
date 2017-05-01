@@ -32,7 +32,7 @@ public class Model {
 		Objects.requireNonNull(noteBookNoteBO);
 
 		if (checkIfNicknameExists(noteBookNoteBO.getNickname())) {
-			throw new RepeatedNicknameException(ViewMessage.NICKNAME_EXCEPTION_MESSAGE);
+			throw new RepeatedNicknameException(ViewMessage.NICKNAME_EXCEPTION_MESSAGE, noteBookNoteBO.getNickname());
 		}
 		this.noteBookNoteBO = noteBookNoteBO;
 	}

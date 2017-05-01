@@ -1,5 +1,7 @@
 package ua.training.notebook_note.view;
 
+import java.util.Objects;
+
 import ua.training.notebook_note.model.entity.NoteBookNoteBO;
 
 /**

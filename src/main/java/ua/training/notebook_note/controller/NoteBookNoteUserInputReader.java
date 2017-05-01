@@ -43,7 +43,6 @@ public class NoteBookNoteUserInputReader {
 	}
 
 	private NoteBookNoteDTO repeatNicknameUserInput() {
-		view.printMessage(ViewMessage.NICKNAME_EXCEPTION_MESSAGE);
 		noteDTO.setNickname(UserInputProcessUtility.inputStringValue(scanner, view,
 				ViewMessage.NICKNAME + ViewMessage.FULLNAME_LNGTH, RegexContainer.NICKNAME_REGEX));
 		return noteDTO;
