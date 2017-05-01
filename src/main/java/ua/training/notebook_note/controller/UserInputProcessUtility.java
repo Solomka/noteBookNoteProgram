@@ -11,7 +11,7 @@ import ua.training.notebook_note.view.ViewMessage;
  * @author Solomka
  *
  */
-public final class UserInputProcessUtility {
+ final class UserInputProcessUtility {
 
 	private UserInputProcessUtility() {
 		throw new RuntimeException();
@@ -30,7 +30,7 @@ public final class UserInputProcessUtility {
 	 *            to the user
 	 * @return
 	 */
-	public static int inputIntValue(Scanner scanner, View view, String message) {
+	 static int inputIntValue(Scanner scanner, View view, String message) {
 		view.printMessage(ViewMessage.TYPE, message, ViewMessage.COLON);
 		while (!(scanner.hasNextInt())) {
 			view.printWrongInput();
@@ -62,7 +62,7 @@ public final class UserInputProcessUtility {
 	 *            regex expression which the user String input has to match
 	 * @return
 	 */
-	public static String inputStringValue(Scanner scanner, View view, String message, String regex) {
+	 static String inputStringValue(Scanner scanner, View view, String message, String regex) {
 		view.printMessage(ViewMessage.TYPE, message, ViewMessage.COLON);
 
 		String res = "";

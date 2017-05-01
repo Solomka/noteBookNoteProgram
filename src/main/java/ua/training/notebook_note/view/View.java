@@ -57,6 +57,8 @@ public class View {
 	 */
 
 	public void printNoteBookNote(final NoteBookNoteBO note) {
+		Objects.requireNonNull(note);
+		
 		printMessage(note.toString());
 	}
 

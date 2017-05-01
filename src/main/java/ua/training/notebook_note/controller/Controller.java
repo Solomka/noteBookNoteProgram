@@ -23,6 +23,7 @@ public class Controller {
 	private View view;
 	private Model model;
 	private Scanner scanner;
+	
 	private NoteBookNoteDTO noteBookNoteDTO;
 
 	public Controller(Model model, View view) {
@@ -51,7 +52,6 @@ public class Controller {
 	}
 
 	private void repeatNoteNicknameUserInput() {
-		
 		noteBookNoteDTO = NoteBookNoteUserInputReader.readNoteBookNoteUserInput(view, scanner, noteBookNoteDTO);
 
 		addNoteBookNoteToModel();

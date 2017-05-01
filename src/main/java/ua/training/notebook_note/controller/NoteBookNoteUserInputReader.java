@@ -21,7 +21,7 @@ import ua.training.notebook_note.view.ViewMessage;
  * @author Solomka
  *
  */
-public class NoteBookNoteUserInputReader {
+ class NoteBookNoteUserInputReader {
 	
 	private View view;
 	private Scanner scanner;
@@ -38,7 +38,7 @@ public class NoteBookNoteUserInputReader {
 		return new NoteBookNoteUserInputReader(view, scanner, new NoteBookNoteDTO()).readNoteBookNoteUserInput();
 	}
 
-	public static NoteBookNoteDTO readNoteBookNoteUserInput(View view, Scanner scanner, NoteBookNoteDTO noteDTO) {
+	 static NoteBookNoteDTO readNoteBookNoteUserInput(View view, Scanner scanner, NoteBookNoteDTO noteDTO) {
 		return new NoteBookNoteUserInputReader(view, scanner, noteDTO).repeatNicknameUserInput();
 	}
 
